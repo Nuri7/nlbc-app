@@ -9,7 +9,10 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     if @team.save
       redirect_to @team
-      flash[:notice] = "ok"
+      flash[:notice] = "Successfuly created team"
+    else
+      redirect_to new_team_path
+      flash[:error] = "Something went wrong, please select one or more users"
     end
   end
 
