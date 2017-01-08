@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Make sure to 'bundle install' and before that install postgres
+To create database on linux (hopefully it's the same for mac) type:
+- "sudo -i -u postgres"
+- type "psql" to access postgres
 
-Things you may want to cover:
+to create postgres user (don't forget the semicolon ; ):
+- "CREATE USER nuri_dev;"
 
-* Ruby version
+to create database:
+- "CREATE DATABASE nuri_dev WITH OWNER nuri_dev;"
 
-* System dependencies
+- type "/q" after done to exit psql and "exit" to return to normal console
 
-* Configuration
+- run "rake db:migrate db:seed"
 
-* Database creation
+- "rails s" to start rails server
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# accounts
+- use "email@example.com" with password: "password" for normal user
+- use "admin@example.com" with password: "password" for admin user
