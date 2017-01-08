@@ -1,0 +1,14 @@
+<h3>All teams</h3>
+
+<% @teams.each do |team| %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div align="center" class="team" style="background:#eaeaea; border: 1px solid #eee;margin-bottom: 10px">
+        <% team.users.each do |user| %>
+          <%= user.email %> <br>
+        <% end %>
+        <%= link_to 'Open team', team_path(team) %>
+      </div>
+    </div>
+  </div>
+<% end %>
