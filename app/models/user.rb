@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   belongs_to :role
   before_validation :set_default_role
+  has_many :user_teams
+  has_many :teams, through: :user_teams
 
 
   private

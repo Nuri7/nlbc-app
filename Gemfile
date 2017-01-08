@@ -55,3 +55,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "twitter-bootstrap-rails"
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'jquery-datatables-rails', '~> 3.4.0'

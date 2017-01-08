@@ -48,7 +48,7 @@
         <a class="navbar-brand" href="#">NuriApp</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
+            <li><%= link_to "Create team", new_team_path  %></li>
             <li><%= link_to "Link2", "/path2"  %></li>
             <li><%= link_to "Link3", "/path3"  %></li>
           </ul>
@@ -58,7 +58,7 @@
                       class: 'btn btn-xs btn-danger', title: 'Logout', :method => :delete) %></li>
             <% else %>
               <li><%= link_to 'Log In', new_user_session_path %></li>
-              <li><%= link_to 'Sign Up', new_user_registration_path %></li>              
+              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
             <% end %>
           </ul>
         </div>
