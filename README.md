@@ -1,5 +1,8 @@
 # README
 
+easiest way to get postgres running on mac:
+http://postgresapp.com/
+
 Make sure to 'bundle install' and before that install postgres
 To create database on linux (hopefully it's the same for mac) type:
 - "sudo -i -u postgres"
