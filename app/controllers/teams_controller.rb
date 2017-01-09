@@ -9,15 +9,36 @@ class TeamsController < ApplicationController
     @numbers = Number.last
   end
 
-  def create
-    @team = Team.new(team_params)
-    if @team.save
-      redirect_to @team
-      flash[:notice] = "Successfuly created team"
-    else
-      redirect_to new_team_path
-      flash[:error] = "Something went wrong, please select one or more users"
+  def multicreate
+    team = Team.new(team_params)
+
+    people = team.per_team
+    size = team.users.size
+    how_many = size/people
+    all_users = []
+    users = []
+    team.users.each do |user|
+      all_users.push(user)
     end
+
+    how_many.times do
+      people.times do
+        id = all_users.pop
+        users.push(id.id)
+      end
+      @team = Team.new(user_ids: users)
+      users = []
+      if @team.save
+        next
+      else
+        redirect_to root_path
+      end
+    end
+    redirect_to teams_path
+  end
+
+  def create
+
   end
 
   def show
@@ -27,6 +48,6 @@ class TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(user_ids: [])
+    params.require(:team).permit(:per_team, user_ids: [])
   end
 end

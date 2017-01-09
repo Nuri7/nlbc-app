@@ -1,5 +1,5 @@
 <h3>New team</h3>
-<%= form_for @team do |f| %>
+<%= form_for @team, :url => url_for(:controller => 'teams', :action => 'multicreate') do |f| %>
 
 
 
@@ -17,8 +17,33 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">How many users per team</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+          <%= f.label :per_team %> <br>
+          <%= f.number_field :per_team %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit class:"btn btn-success" %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 <p><small>Please make sure that you've selected at least one user.</small></p>
-<%= f.submit class:"btn btn-success" %>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Make Teams</button>
+
 <% end %>
 
 <script type="text/javascript">
