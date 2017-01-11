@@ -12,3 +12,13 @@ end
 User.create!(email:"email@example.com", password:"password", password_confirmation:"password")
 admin = User.create!(email:"admin@example.com", password:"password", password_confirmation:"password")
 admin.role.name = 'admin'
+User.create(email:"gareto@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
+User.create(email:"bambikuche1@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
+User.create(email:"bambikuche2@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
+User.create(email:"bambikuche3@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
+User.create(email:"bambikuche4@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
+User.create(email:"bambikuche5@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
+User.create(email:"bambikuche6@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
+User.create(email:"bambikuche7@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
+User.create(email:"bambikuche8@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
+User.create(email:"bambikuche9@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
