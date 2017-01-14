@@ -21,6 +21,8 @@ class TeamsController < ApplicationController
       all_users.push(user)
     end
 
+    all_users.shuffle!
+
     how_many.times do
       people.times do
         id = all_users.pop
@@ -34,6 +36,12 @@ class TeamsController < ApplicationController
         redirect_to root_path
       end
     end
+    redirect_to teams_path
+  end
+
+  def delete_all
+    Team.destroy_all
+    flash[:notice] = "All teams were successfuly deleted."
     redirect_to teams_path
   end
 
