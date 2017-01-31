@@ -10,8 +10,8 @@
 end
 
 User.create!(email:"email@example.com", password:"password", password_confirmation:"password")
-admin = User.create!(email:"admin@example.com", password:"password", password_confirmation:"password")
-admin.role.name = 'admin'
+admin = User.create!(email:"admin@example.com", password:"password", password_confirmation:"password", role_id:2)
+
 User.create(email:"gareto@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
 User.create(email:"bambikuche1@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
 User.create(email:"bambikuche2@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
