@@ -10,9 +10,14 @@ class WelcomeController < ApplicationController
 
   def delete_user
     @user = User.find(params[:id])
-    @user.destroy
-    flash[:notice] = "User was successfuly deleted from database."
-    redirect_to :back
+    if @user.role_id == 2
+      flash[:danger] = "You can't delete admin from database!"
+      redirect_to root_path
+    else
+      @user.destroy
+      flash[:notice] = "User was successfuly deleted from database."
+      redirect_to :back
+    end
   end
 
   private
