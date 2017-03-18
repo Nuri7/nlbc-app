@@ -1,0 +1,14 @@
+<h3>Select bootcamp</h3>
+<hr>
+
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Choose bootcamp <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <% @feedbacks.each do |feedback| %>
+      <li><%= link_to Bootcamp.find(feedback.bootcamp_id).title.titleize, feedback_path(feedback.bootcamp_id) %></li>
+    <% end %>
+  </ul>
+</div>

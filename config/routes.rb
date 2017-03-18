@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :numbers
   resources :teams
+  resources :feedbacks, except: :new
+  get 'new-feedback', to: 'feedbacks#new', as: 'new_feedback'
   post 'teams/new', to: 'teams#multicreate'
   post 'delete_all', to: 'teams#delete_all'
   get 'delete-users', to: 'welcome#all_users'
