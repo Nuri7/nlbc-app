@@ -10,13 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170109183853) do
+ActiveRecord::Schema.define(version: 20170318160422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bootcamp_passions", force: :cascade do |t|
+    t.integer "bootcamp_id"
+    t.integer "passion_id"
+    t.index ["bootcamp_id"], name: "index_bootcamp_passions_on_bootcamp_id", using: :btree
+    t.index ["passion_id"], name: "index_bootcamp_passions_on_passion_id", using: :btree
+  end
+
+  create_table "bootcamps", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "numbers", force: :cascade do |t|
     t.integer  "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "passions", force: :cascade do |t|
+    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -59,5 +78,7 @@ ActiveRecord::Schema.define(version: 20170109183853) do
     t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
+  add_foreign_key "bootcamp_passions", "bootcamps"
+  add_foreign_key "bootcamp_passions", "passions"
   add_foreign_key "users", "roles"
 end

@@ -22,3 +22,13 @@ User.create(email:"bambikuche6@vitaminka.com",password:"merimeri",password_confi
 User.create(email:"bambikuche7@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
 User.create(email:"bambikuche8@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
 User.create(email:"bambikuche9@vitaminka.com",password:"merimeri",password_confirmation:"merimeri")
+
+["QA", "Developer", "Teacher"].each do |passion|
+  name = passion.downcase
+  Passion.create(title: name)
+end
+
+["Java_and_BDD1", "Java_and_BDD2", "Performance_testing", "Mobile_testing", "Javascript_and_Protractor"].each do |bootcamp|
+  name = bootcamp.downcase
+  Bootcamp.create(title: name)
+end
