@@ -27,7 +27,7 @@
 
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
-    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+    <%= favicon_link_tag 'favicon_NLBCicon.ico', :rel => 'shortcut icon' %>
 
     <%= javascript_include_tag "application" %>
 
@@ -38,51 +38,150 @@
   </head>
   <body>
 
-    <div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="<%= root_path %>">NLBC</a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <% if current_user %>
-              <li><%= link_to "Create team", new_team_path  %></li>
-              <li><%= link_to "All teams", teams_path  %></li>
-              <% if current_user.role.name == 'admin' %>
-                <li><%= link_to "Feedbacks", feedbacks_path  %></li>
-                <li><%= link_to "Delete Users", delete_users_path  %></li>
-              <% else %>
-                <li><%= link_to "Leave feedback", new_feedback_path  %></li>
-              <% end %>
-            <% end %>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <% if current_user %>
-              <li><%= link_to('Logout', destroy_user_session_path,
-                      class: 'btn btn-xs btn-danger', title: 'Logout', :method => :delete) %></li>
-            <% else %>
-              <li><%= link_to 'Log In', new_user_session_path %></li>
-              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
+    <div id="wrapper">
+      <div class="header"><!-- Header Section -->
+    		<div class="main-header"><!-- Main-header -->
+    			<div class="container">
+    				<div class="row">
+    					<div class="pull-left">
+    						<div class="logo">
+                  <%= link_to (image_tag 'logo', alt:"Logo", class:"img-responsive"), root_path, data:{turbolinks:false} %>
+    						</div>
+    					</div>
+    					<div class="pull-right">
+    						<div class="pull-left">
+    							<nav class="nav">
+    								<ul id="navigate" class="sf-menu navigate">
+
+
+    									<li class="parent-menu"><a href="#">Bootcamps</a>
+    										<ul>
+
+    											<li><a href="#">QA</a></li>
+    											<li><a href="#">Developer</a></li>
+    											<li><a href="#">Teacher</a></li>
+
+    										</ul>
+    									</li>
+    									<li class="parent-menu"><a href="#">Our process</a>
+    										<ul>
+    											<li><a href="#">Teamgenerator</a></li>
+    											<li><a href="#">Code-along</a></li>
+    											<li><a href="#">Practise</a></li>
+    											<li><a href="#">Challenge</a></li>
+    									  </ul>
+    									</li>
+    									<li><%= link_to "Leave feedback", new_feedback_path  %></li>
+    									<li><a href="#">Contact</a></li>
+                      <% if current_user %>
+                      <li class="parent-menu"><a href="#">Account</a>
+    										<ul>
+                            <% if current_user.role.name == 'admin' %>
+                              <li><%= link_to "Create team", new_team_path  %></li>
+                              <li><%= link_to "All teams", teams_path  %></li>
+                              <li><%= link_to "Feedbacks", feedbacks_path  %></li>
+                              <li><%= link_to "Delete Users", delete_users_path  %></li>
+                            <% end %>
+                            <li><%= link_to('Logout', destroy_user_session_path,
+                                    class: '', title: 'Logout', :method => :delete) %></li>
+                        </ul>
+                          <% else %>
+                            <li><%= link_to 'Log In', new_user_session_path %></li>
+                            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+                          <% end %>
+
+    									</li>
+    								</ul>
+    							</nav>
+    						</div>
+
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
+
+
+    <div class="">
+      <div class="">
+        <div class="">
+          <!--- should flash messages be there?
           <%= bootstrap_flash %>
+          --->
           <%= yield %>
         </div>
       </div><!--/row-->
 
-      <footer>
-        <p>&copy; Company 2017</p>
-      </footer>
+      <div class="footer"><!-- Footer Section -->
+			<div class="main-footer">
+				<div class="container">
+					<div class="row">
+					<div class="col-lg-3 col-sm-3 footer-logo">
+              <%= image_tag 'footer-logo', alt:"Logo", class:"img-responsive" %>
+
+						<div class="social">
+							<ul class="socialList">
+                <li><a href="#"><%= image_tag 'social/youtube' %></a></li>
+                <li><a href="#"><%= image_tag 'social/instagram' %></a></li>
+                <li><a href="#"><%= image_tag 'social/linkin' %></a></li>
+								<li><a href="#"><%= image_tag 'social/twitter' %></a></li>
+							</ul>
+						</div>
+						<div class="social">
+							<ul class="socialList">
+                <li><a href="#"><%= image_tag 'social/fb' %></a></li>
+                <li><a href="#"><%= image_tag 'social/skype' %></a></li>
+                <li><a href="#"><%= image_tag 'social/pinterest' %></a></li>
+                <li><a href="#"><%= image_tag 'social/gmail' %></a></li>
+							</ul>
+						</div>
+					</div>
+
+						<div class="col-lg-5 col-sm-4">
+							<h2>Our Services</h2>
+							<p>
+								For more information or specific requirements please contact us.
+							</p>
+						</div>
+						<div class="col-lg-3 col-sm-4">
+							<h2>Our Contact Info</h2>
+							<div class="contactManage">
+								<div class="leftCont"><i class="fa fa-home" aria-hidden="true"></i></div>
+								<div class="rightCont"><p>Eerste Constantijn Huygensstraat 74-2,
+								Amsterdam, The Netherlands.</p> </div>
+								<div class="clear"></div>
+							</div>
+
+							<div class="contactManage">
+								<div class="leftCont"><i class="fa fa-phone-square" aria-hidden="true"></i></div>
+								<div class="rightCont"><p>+ 31 622752205</p> </div>
+								<div class="clear"></div>
+							</div>
+
+							<div class="contactManage">
+								<div class="leftCont"><i class="fa fa-paper-plane" aria-hidden="true"></i></div>
+								<div class="rightCont"><p>info@nlbootcamps.com</p> </div>
+								<div class="clear"></div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+			<div class="pre-footer">
+				<div class="container">
+					<div class="row">
+					<div class="col-md-12 footText">
+						<p>Copyright &copy; <%= Date.today.year %> NLBC</p>
+					</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
 
     </div> <!-- /container -->
 

@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
   before_action :require_admin, only: [:delete_user, :all_users]
   def index
 

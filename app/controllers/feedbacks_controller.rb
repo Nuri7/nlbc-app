@@ -9,7 +9,7 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.new(feedback_params)
     if @feedback.save
       flash[:success] = "Thank you for your feedback"
-      redirect_to root_path
+      redirect_to :back
     else
       flash[:danger] = "We are sorry but there was an error, please fill the from again."
       render :new
@@ -22,7 +22,7 @@ class FeedbacksController < ApplicationController
 
   def show
     bootcamp = params[:id].to_i
-    
+
     @bootcamp_name = Bootcamp.find(bootcamp)
     @feedbacks = Feedback.where(bootcamp_id: bootcamp)
   end

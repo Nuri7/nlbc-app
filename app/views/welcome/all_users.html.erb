@@ -1,20 +1,22 @@
-<table class="table table-striped datatable">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
+<div class="container old-spacer">
+  <table class="table table-striped datatable">
+    <thead>
       <tr>
-        <td><%= user.email %></td>
-        <td><%= link_to "Delete user", {controller:"welcome", action:"delete_user", :id => user.id},
-                        method: :delete, data:{confirm:"Are you sure?"} %></td>
+        <th>User</th>
+        <th>Delete</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= link_to "Delete user", {controller:"welcome", action:"delete_user", :id => user.id},
+                          method: :delete, data:{confirm:"Are you sure?"} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <script type="text/javascript">
   $('.datatable').DataTable({
     // ajax: ..., autoWidth: false, pagingType: 'full_numbers', processing: true, serverSide: true, Optional, if you want full pagination controls. Check dataTables documentation to learn more about available options.

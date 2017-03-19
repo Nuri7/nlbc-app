@@ -1,54 +1,57 @@
-<h3>New team</h3>
-<%= form_for @team, :url => url_for(:controller => 'teams', :action => 'multicreate') do |f| %>
+<div class="container old-spacer">
+  <h3>New team</h3>
+  <%= form_for @team, :url => url_for(:controller => 'teams', :action => 'multicreate') do |f| %>
 
 
 
-<table class="table datatable">
-  <thead>
-    <tr>
-      <th>checkbox</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= f.collection_check_boxes :user_ids, User.all, :id, :email do |cb| %>
-    <tr>
-      <td><%= cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <table class="table datatable">
+    <thead>
+      <tr>
+        <th>checkbox</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= f.collection_check_boxes :user_ids, User.all, :id, :email do |cb| %>
+      <tr>
+        <td><%= cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+  <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">How many users per team</h4>
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">How many users per team</h4>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+            <%= f.label :per_team %> <br>
+            <%= f.number_field :per_team %>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit class:"btn btn-success" %>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
         </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-          <%= f.label :per_team %> <br>
-          <%= f.number_field :per_team %>
-        </div>
-        <div class="modal-footer">
-          <%= f.submit class:"btn btn-success" %>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+
       </div>
-
     </div>
-  </div>
 
-<p><small>Please make sure that you've selected at least one user.</small></p>
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Make Teams</button>
+  <p><small>Please make sure that you've selected at least one user.</small></p>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Make Teams</button>
 
-<% end %>
+  <% end %>
 
-<script type="text/javascript">
-  $('.datatable').DataTable({
-    // ajax: ..., autoWidth: false, pagingType: 'full_numbers', processing: true, serverSide: true, Optional, if you want full pagination controls. Check dataTables documentation to learn more about available options.
-    // http://datatables.net/reference/option/pagingType
-  });
-</script>
+  <script type="text/javascript">
+    $('.datatable').DataTable({
+      // ajax: ..., autoWidth: false, pagingType: 'full_numbers', processing: true, serverSide: true, Optional, if you want full pagination controls. Check dataTables documentation to learn more about available options.
+      // http://datatables.net/reference/option/pagingType
+    });
+  </script>
+
+</div>
