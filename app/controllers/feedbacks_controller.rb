@@ -24,7 +24,7 @@ class FeedbacksController < ApplicationController
     bootcamp = params[:id].to_i
 
     @bootcamp_name = Bootcamp.find(bootcamp)
-    @feedbacks = Feedback.where(bootcamp_id: bootcamp)
+    @feedbacks = Feedback.where(bootcamp_id: bootcamp).order(created_at: :desc).paginate(:page => params[:page], :per_page => 3)
   end
 
   private
@@ -37,7 +37,8 @@ class FeedbacksController < ApplicationController
   end
 
   def feedback_params
-    params.require(:feedback).permit(:text, :bootcamp_id)
+    params.require(:feedback).permit(:name, :bootcamp_id, :company_and_position, :rate_bootcamp, :most_value, :least, :describe_bootcamp, :rate_trainer, :tips_to_trainer,
+                                     :suggestion, :other_bootcamps, :contact, :plans)
   end
 
 end

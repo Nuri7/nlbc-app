@@ -60,3 +60,5 @@ gem "twitter-bootstrap-rails"
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
