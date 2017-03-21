@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170318161911) do
+ActiveRecord::Schema.define(version: 20170321200747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,10 +29,21 @@ ActiveRecord::Schema.define(version: 20170318161911) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
-    t.text     "text"
+    t.text     "plans"
     t.integer  "bootcamp_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "name"
+    t.string   "company_and_position"
+    t.integer  "rate_bootcamp"
+    t.string   "most_value"
+    t.string   "least"
+    t.text     "describe_bootcamp"
+    t.integer  "rate_trainer"
+    t.text     "tips_to_trainer"
+    t.text     "suggestion"
+    t.string   "other_bootcamps"
+    t.string   "contact"
     t.index ["bootcamp_id"], name: "index_feedbacks_on_bootcamp_id", using: :btree
   end
 
