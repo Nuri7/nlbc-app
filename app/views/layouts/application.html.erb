@@ -61,14 +61,16 @@
                           <% end %>
     										</ul>
     									</li>
-                      <% if !current_user.passions.empty? %>
-                        <li class="parent-menu"><a href="#">Bootcamps</a>
-      										<ul>
-                            <% get_bootcamps.each do |bootcamp| %>
-                              <li><%= link_to bootcamp.title.titleize, '#' %></li>
-                            <% end %>
-      										</ul>
-      									</li>
+                      <% if current_user %>
+                        <% if !current_user.passions.empty? %>
+                          <li class="parent-menu"><a href="#">Bootcamps</a>
+        										<ul>
+                              <% get_bootcamps.each do |bootcamp| %>
+                                <li><%= link_to bootcamp.title.titleize, '#' %></li>
+                              <% end %>
+        										</ul>
+        									</li>
+                        <% end %>
                       <% end %>
     									<li class="parent-menu"><a href="#">Our process</a>
     										<ul>
