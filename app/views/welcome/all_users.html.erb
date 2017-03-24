@@ -2,7 +2,9 @@
   <table class="table table-striped datatable">
     <thead>
       <tr>
-        <th>User</th>
+        <th>User email</th>
+        <th>First name</th>
+        <th>Last name</th>
         <th>Delete</th>
       </tr>
     </thead>
@@ -10,6 +12,8 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.email %></td>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
           <td><%= link_to "Delete user", {controller:"welcome", action:"delete_user", :id => user.id},
                           method: :delete, data:{confirm:"Are you sure?"}, class:"btn btn-xs btn-danger" %></td>
         </tr>

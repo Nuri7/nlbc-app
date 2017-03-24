@@ -54,15 +54,22 @@
     								<ul id="navigate" class="sf-menu navigate">
 
 
-    									<li class="parent-menu"><a href="#">Bootcamps</a>
+    									<li class="parent-menu"><a href="#">Passions</a>
     										<ul>
-
-    											<li><a href="#">QA</a></li>
-    											<li><a href="#">Developer</a></li>
-    											<li><a href="#">Teacher</a></li>
-
+                          <% get_passions.each do |passion| %>
+                            <li><%= link_to passion.title.titleize, passion_path(passion) %></li>
+                          <% end %>
     										</ul>
     									</li>
+                      <% if !current_user.passions.empty? %>
+                        <li class="parent-menu"><a href="#">Bootcamps</a>
+      										<ul>
+                            <% get_bootcamps.each do |bootcamp| %>
+                              <li><%= link_to bootcamp.title.titleize, '#' %></li>
+                            <% end %>
+      										</ul>
+      									</li>
+                      <% end %>
     									<li class="parent-menu"><a href="#">Our process</a>
     										<ul>
                           <% if current_user %>

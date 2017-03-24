@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324171303) do
+ActiveRecord::Schema.define(version: 20170324181344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(version: 20170324171303) do
     t.integer  "per_team"
   end
 
+  create_table "user_passions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "passion_id"
+    t.index ["passion_id"], name: "index_user_passions_on_passion_id", using: :btree
+    t.index ["user_id"], name: "index_user_passions_on_user_id", using: :btree
+  end
+
   create_table "user_teams", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "team_id"
@@ -102,5 +109,7 @@ ActiveRecord::Schema.define(version: 20170324171303) do
   add_foreign_key "bootcamp_passions", "bootcamps"
   add_foreign_key "bootcamp_passions", "passions"
   add_foreign_key "feedbacks", "bootcamps"
+  add_foreign_key "user_passions", "passions"
+  add_foreign_key "user_passions", "users"
   add_foreign_key "users", "roles"
 end

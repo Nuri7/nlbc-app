@@ -1,13 +1,33 @@
 class WelcomeController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :require_admin, only: [:delete_user, :all_users]
-  def index
 
+  def index
+  end
+
+  def subscribe_to_passion
+    if UserPassion.where(user_id: params[:user_id], passion_id: params[:passion_id]).present?
+      passion = Passion.find(params[:passion_id])
+      flash[:warning] = "You have been already subscribed to this passion."
+      redirect_to passion_path(passion)
+    else
+      @subscribe = UserPassion.new(user_id: params[:user_id], passion_id: params[:passion_id])
+      if @subscribe.save
+        flash[:success] = "You successfuly subscribed to this passion."
+        redirect_to edit_user_registration_path
+      else
+        passion = Passion.find(params[:passion_id])
+        flash[:error] = "Something went wrong, please try again."
+        redirect_to passion_path(passion)
+      end
+    end
   end
 
   def all_users
     @users = User.all
   end
+
+
 
   def delete_user
     @user = User.find(params[:id])

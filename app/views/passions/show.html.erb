@@ -1,0 +1,13 @@
+<div class="container old-spacer">
+  <%= bootstrap_flash %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Subscribe to "<%= @passion.title.upcase %>"</h4>
+    </div>
+    <div class="panel-body">
+      <%= button_to "Subscribe", {:controller => "welcome", :action => "subscribe_to_passion", :user_id => current_user.id, :passion_id => @passion.id},
+                                  data:{:confirm => "Do you want to subscribe to this passion?"}, :method => :post, class:"btn btn-primary"%>
+    </div>
+  </div>
+
+</div>
