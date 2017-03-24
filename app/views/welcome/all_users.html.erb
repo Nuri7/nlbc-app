@@ -11,7 +11,7 @@
         <tr>
           <td><%= user.email %></td>
           <td><%= link_to "Delete user", {controller:"welcome", action:"delete_user", :id => user.id},
-                          method: :delete, data:{confirm:"Are you sure?"} %></td>
+                          method: :delete, data:{confirm:"Are you sure?"}, class:"btn btn-xs btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
