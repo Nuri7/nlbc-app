@@ -85,6 +85,7 @@
                               <li><%= link_to "Feedbacks", feedbacks_path  %></li>
                               <li><%= link_to "Delete Users", delete_users_path  %></li>
                             <% end %>
+                            <li><%= link_to "My profile", edit_user_registration_path %></li>
                             <li><%= link_to('Logout', destroy_user_session_path,
                                     class: '', title: 'Logout', :method => :delete) %></li>
                         </ul>
