@@ -18,6 +18,10 @@
         <label>Last name:</label>
         <p><%= @user.last_name.present? ? @user.last_name : "Not provided" %></p>
       </div>
+      <div class="form-group">
+        <label>Gender:</label>
+        <p><%= !@user.male.nil? ? (@user.male == true ? 'Male' : "Female") : "Not provided" %></p>
+      </div>
     </div>
   </div>
   <div class="panel panel-default devise-bs">
@@ -37,6 +41,10 @@
         <div class="form-group">
           <%= f.label :last_name %>
           <%= f.text_field :last_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label 'Gender' %>
+          <%= f.select :male, [['Male', true],['Female', false]], include_blank: true, class: 'form-control' %>
         </div>
         <div class="red-back">
           <span>Edit this fields only if you want to change your password!</span>

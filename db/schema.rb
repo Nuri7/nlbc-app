@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324181344) do
+ActiveRecord::Schema.define(version: 20170726133758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 20170324181344) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "per_team"
+    t.boolean  "male"
+    t.boolean  "female"
   end
 
   create_table "user_passions", force: :cascade do |t|
@@ -101,6 +103,7 @@ ActiveRecord::Schema.define(version: 20170324181344) do
     t.integer  "role_id"
     t.string   "first_name"
     t.string   "last_name"
+    t.boolean  "male"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["role_id"], name: "index_users_on_role_id", using: :btree

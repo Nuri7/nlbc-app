@@ -29,9 +29,12 @@
             <h4 class="modal-title">How many users per team</h4>
           </div>
           <div class="modal-body">
-            <p>Some text in the modal.</p>
             <%= f.label :per_team %> <br>
             <%= f.number_field :per_team %>
+
+            <%= f.label 'Gender specific' %> <br>
+            <%= f.check_box :male, {:class => "form-contro"}, true, false %> Male
+            <%= f.check_box :female, {:class => "form-contro"}, true, false %> Female
           </div>
           <div class="modal-footer">
             <%= f.submit class:"btn btn-success" %>
