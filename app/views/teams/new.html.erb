@@ -31,10 +31,25 @@
           <div class="modal-body">
             <%= f.label :per_team %> <br>
             <%= f.number_field :per_team %>
+            <br><br>
+            <div id="myRadioGroup">
+              <label style="display: inline;">
+                <input type="radio" name="gender" checked="checked" value="2"  /> Gender specific
+              </label>
+              <label style="display: inline;">
+                <input type="radio" name="gender" value="3" /> Mix genders
+              </label>
 
-            <%= f.label 'Gender specific' %> <br>
-            <%= f.check_box :male, {:class => "form-contro"}, true, false %> Male
-            <%= f.check_box :female, {:class => "form-contro"}, true, false %> Female
+              <div id="gender2" class="desc">
+                <br>
+                <%= f.label 'Gender specific' %> <br>
+                <%= f.check_box :male, {:class => "form-contro"}, true, false %> Male
+                <%= f.check_box :female, {:class => "form-contro"}, true, false %> Female
+              </div>
+              <div id="gender3" class="desc" style="display: none;">
+              </div>
+            </div>
+
           </div>
           <div class="modal-footer">
             <%= f.submit class:"btn btn-success" %>
@@ -58,3 +73,13 @@
   </script>
 
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("input[name$='gender']").click(function() {
+      var test = $(this).val();
+
+      $("div.desc").hide();
+      $("#gender" + test).show();
+  });
+});
+</script>

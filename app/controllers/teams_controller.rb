@@ -25,13 +25,24 @@ class TeamsController < ApplicationController
 
     how_many.times do
       people.times do
-        id = all_users.pop
-        if params[:team][:male].present?
-          users.push(id.id) if id.male == true
-        elsif params[:team][:female].present?
-          users.push(id.id) if id.male == false
+        if params[:gender] == '3'
+          male_user = User.where(id: all_users.pluck(:id)).where(male: true).first
+          female_user = User.where(id: all_users.pluck(:id)).where(male: false).first
+          if !male_user.nil? and !female_user.nil?
+            users.push(male_user.id)
+            all_users.delete(male_user)
+            users.push(female_user.id)
+            all_users.delete(female_user)
+          end
         else
-          users.push(id.id)
+          id = all_users.pop
+          if params[:team][:male].present?
+            users.push(id.id) if id.male == true
+          elsif params[:team][:female].present?
+            users.push(id.id) if id.male == false
+          else
+            users.push(id.id)
+          end
         end
       end
       @team = Team.new(user_ids: users)
@@ -66,6 +77,6 @@ class TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(:male, :female, :per_team, user_ids: [])
+    params.require(:team).permit(:male, :female, :mix_genders, :per_team, user_ids: [])
   end
 end
