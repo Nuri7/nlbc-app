@@ -22,12 +22,12 @@ class TeamsController < ApplicationController
     end
 
     all_users.shuffle!
-
+s
     how_many.times do
       people.times do
         if params[:gender] == '3'
-          male_user = User.where(id: all_users.pluck(:id)).where(male: true).first
-          female_user = User.where(id: all_users.pluck(:id)).where(male: false).first
+          male_user = User.where(id: all_users.pluck(:id)).where(male: true).shuffle.first
+          female_user = User.where(id: all_users.pluck(:id)).where(male: false).shuffle.first
           if !male_user.nil? and !female_user.nil?
             users.push(male_user.id)
             all_users.delete(male_user)
