@@ -22,10 +22,10 @@ class TeamsController < ApplicationController
     end
 
     all_users.shuffle!
-s
-    how_many.times do
-      people.times do
-        if params[:gender] == '3'
+
+    if params[:gender] == '3'
+      how_many.times do
+        people.times do
           male_user = User.where(id: all_users.pluck(:id)).where(male: true).shuffle.first
           female_user = User.where(id: all_users.pluck(:id)).where(male: false).shuffle.first
           if !male_user.nil? and !female_user.nil?
@@ -34,27 +34,49 @@ s
             users.push(female_user.id)
             all_users.delete(female_user)
           end
-        else
-          id = all_users.pop
-          if params[:team][:male].present?
-            users.push(id.id) if id.male == true
-          elsif params[:team][:female].present?
-            users.push(id.id) if id.male == false
+
+          @team = Team.new(user_ids: users)
+          users = []
+          if !@team.user_ids.empty?
+            if @team.save
+              next
+            else
+              redirect_to root_path
+            end
           else
-            users.push(id.id)
+            next
           end
         end
       end
-      @team = Team.new(user_ids: users)
-      users = []
-      if !@team.user_ids.empty?
-        if @team.save
-          next
-        else
-          redirect_to root_path
+    end
+
+    if params[:gender] == '2'
+      how_many.times do
+        people.times do
+          if params[:team][:male].present?
+            male_user = User.where(id: all_users.pluck(:id)).where(male: true).shuffle.first
+            users.push(male_user.id) if !male_user.nil?
+            all_users.delete(male_user) if !male_user.nil?
+          elsif params[:team][:female].present?
+            female_user = User.where(id: all_users.pluck(:id)).where(male: false).shuffle.first
+            users.push(female_user.id) if !female_user.nil?
+            all_users.delete(female_user) if !female_user.nil?
+          else
+            id = all_users.pop
+            users.push(id.id)
+          end
         end
-      else
-        next
+        @team = Team.new(user_ids: users)
+        users = []
+        if !@team.user_ids.empty?
+          if @team.save
+            next
+          else
+            redirect_to root_path
+          end
+        else
+          next
+        end
       end
     end
     redirect_to teams_path
