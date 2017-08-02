@@ -7,14 +7,22 @@
   <table class="table datatable">
     <thead>
       <tr>
-        <th>checkbox</th>
+        <th>Checkbox</th>
+        <th>Gender</th>
+        <th>Name</th>
       </tr>
     </thead>
     <tbody>
-      <%= f.collection_check_boxes :user_ids, User.all, :id, :email do |cb| %>
-      <tr>
-        <td><%= cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %></td>
-      </tr>
+      <% User.all.each do |user| %>
+        <tr>
+          <td>
+            <label>
+              <%= check_box_tag 'team[user_ids][]', user.id %> <%= user.email %>
+            </label>
+          </td>
+          <td><%= user.male.nil? ? '-' : (user.male ? 'Male' : 'Female') %></td>
+          <td><%= "#{user.first_name} #{user.last_name}" %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>
