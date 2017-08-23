@@ -1,5 +1,4 @@
 class Bootcamp < ApplicationRecord
-  has_many :bootcamp_passions
-  has_many :passions, through: :bootcamp_passions
+  belongs_to :passion
   has_many :feedbacks
 end
