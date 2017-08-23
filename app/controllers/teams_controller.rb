@@ -6,7 +6,6 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
-    @numbers = Number.last
   end
 
   def multicreate

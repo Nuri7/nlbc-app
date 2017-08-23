@@ -56,7 +56,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "twitter-bootstrap-rails"
+# gem "twitter-bootstrap-rails"
+gem 'bootstrap', '~> 4.0.0.beta'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'jquery-datatables-rails', '~> 3.4.0'
