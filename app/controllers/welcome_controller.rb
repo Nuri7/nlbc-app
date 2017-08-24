@@ -1,8 +1,11 @@
 class WelcomeController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :programming]
   before_action :require_admin, only: [:delete_user, :all_users]
 
   def index
+  end
+
+  def programming
   end
 
   def subscribe_to_passion

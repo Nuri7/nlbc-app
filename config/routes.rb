@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :teams
   resources :passions
   resources :feedbacks, except: :new
+  get 'programming', to: 'welcome#programming'
   get 'new-feedback', to: 'feedbacks#new', as: 'new_feedback'
   post 'teams/new', to: 'teams#multicreate'
   post 'delete_all', to: 'teams#delete_all'

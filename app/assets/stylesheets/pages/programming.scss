@@ -1,0 +1,26 @@
+#cover-programming{
+  height: 100vh;
+  background: #ffffff;
+  background-image: asset-url('programming.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  color: #ffffff;
+  .main-text{
+    font-family: 'Lusitana', serif;
+    font-size: 54px;
+    line-height: 72px;
+  }
+  .secondary-text{
+    font-size: 19px;
+    line-height: 28px;
+    margin: 20px 0px 30px 0px;
+    font-weight: 600;
+  }
+  .paragraph{
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+}

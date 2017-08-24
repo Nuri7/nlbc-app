@@ -19,6 +19,7 @@
 @import "font-awesome";
 @import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";
 @import "devise_bootstrap_views";
+$main-color: #7302A1;
 html,body{
   margin: 0px;
   padding: 0px;
@@ -34,4 +35,45 @@ html,body{
 }
 body{
   font-family: 'Open Sans', sans-serif;
+}
+
+a{
+  color: #656565;
+  transition: color 0.2s ease-in-out;
+  -webkit-transition: color 0.2s ease-in-out;
+}
+a:hover{
+  color: $main-color;
+}
+a.btn-primary {
+  border-radius: 0px;
+  padding: 15px 40px;
+  box-sizing: border-box;
+  text-decoration: none;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 600;
+  background: #7302A1;
+  border: none;
+  transition: color 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),background 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),border 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+a.btn-primary:hover{
+  background: #390150;
+}
+a.btn-secondary {
+  border-radius: 0px;
+  padding: 15px 40px;
+  box-sizing: border-box;
+  text-decoration: none;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 600;
+  background: transparent;
+  border: 1px solid white;
+  transition: color 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),background 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),border 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+a.btn-secondary:hover{
+  background: #ffffff;
+  border: 1px solid white;
+  color: black;
 }
