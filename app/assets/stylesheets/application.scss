@@ -16,6 +16,22 @@
 //  *= require_self
 //  */
 @import "bootstrap";
-@import "welcome";
+@import "font-awesome";
 @import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";
 @import "devise_bootstrap_views";
+html,body{
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  min-height:100%;
+  -ms-text-size-adjust:100%;
+  -webkit-text-size-adjust:100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+body{
+  font-family: 'Open Sans', sans-serif;
+}
