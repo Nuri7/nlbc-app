@@ -64,3 +64,4 @@ gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
 gem "font-awesome-rails"
+gem 'progressive_render'

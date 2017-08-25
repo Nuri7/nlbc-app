@@ -13,25 +13,30 @@
       <div class="my-2 my-lg-0">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="<%= programming_path %>">Programming</a>
+            <a class="nav-link" href="<%= programming_path %>#passion-cover">Programming</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Dancing</a>
+            <a class="nav-link" href="<%= dancing_path %>#passion-cover">Dancing</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Photography</a>
+            <a class="nav-link" href="<%= photography_path %>#passion-cover">Photography</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Boxing</a>
+            <a class="nav-link" href="<%= boxing_path %>#passion-cover">Boxing</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">QA Java</a>
+            <a class="nav-link" href="<%= qajava_path %>#passion-cover">QA Java</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Trainers</a>
+            <a class="nav-link" href="<%= trainers_path %>">Trainers</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <% if current_user %>
+              <%= link_to('Logout', destroy_user_session_path,
+                                  class: 'nav-link', title: 'Logout', :method => :delete) %>
+            <% else %>
+              <a class="nav-link" href="<%= new_user_session_path %>">Login</a>
+            <% end %>
           </li>
         </ul>
       </div>

@@ -19,6 +19,7 @@
 @import "font-awesome";
 @import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";
 @import "devise_bootstrap_views";
+@import "progressive_render";
 $main-color: #7302A1;
 html,body{
   margin: 0px;
@@ -28,7 +29,7 @@ html,body{
   min-height:100%;
   -ms-text-size-adjust:100%;
   -webkit-text-size-adjust:100%;
-  -webkit-font-smoothing: antialiased;
+  // -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-y: scroll;
   overflow-x: hidden;

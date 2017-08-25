@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
-  resources :numbers
   resources :teams
   resources :passions
   resources :feedbacks, except: :new
+
   get 'programming', to: 'welcome#programming'
+  get 'dancing', to: 'welcome#dancing'
+  get 'photography', to: 'welcome#photography'
+  get 'boxing', to: 'welcome#boxing'
+  get 'qajava', to: 'welcome#qajava'
+  get 'trainers', to: 'welcome#trainers'
+
   get 'new-feedback', to: 'feedbacks#new', as: 'new_feedback'
   post 'teams/new', to: 'teams#multicreate'
   post 'delete_all', to: 'teams#delete_all'

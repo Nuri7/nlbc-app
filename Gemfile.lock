@@ -111,6 +111,15 @@ GEM
     orm_adapter (0.5.0)
     pg (0.19.0)
     popper_js (1.11.1)
+    progressive_render (0.7.0)
+      coffee-rails
+      jquery-rails
+      nokogiri
+      rails (>= 4.1)
+      railties
+      sass
+      sass-rails
+      uglifier
     puma (3.6.2)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -209,6 +218,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   pg
+  progressive_render
   puma (~> 3.0)
   rails (~> 5.0.1)
   rails_12factor
