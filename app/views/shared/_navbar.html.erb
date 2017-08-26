@@ -30,14 +30,22 @@
           <li class="nav-item">
             <a class="nav-link" href="<%= trainers_path %>">Trainers</a>
           </li>
-          <li class="nav-item">
-            <% if current_user %>
-              <%= link_to('Logout', destroy_user_session_path,
-                                  class: 'nav-link', title: 'Logout', :method => :delete) %>
-            <% else %>
+          <% if current_user %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="Javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Account
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to 'My Profile', edit_user_registration_path, class: 'dropdown-item' %>
+                <%= link_to('Logout', destroy_user_session_path,
+                                      class: 'dropdown-item', title: 'Logout', :method => :delete) %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
               <a class="nav-link" href="<%= new_user_session_path %>">Login</a>
-            <% end %>
-          </li>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
