@@ -1,31 +1,33 @@
-<div class="container old-spacer">
-  <h3>New team</h3>
+<div class="container" style="margin-top: 30px;">
+  <h5>New team</h5>
+  <hr>
   <%= form_for @team, :url => url_for(:controller => 'teams', :action => 'multicreate') do |f| %>
-
-
-
-  <table class="table datatable">
-    <thead>
-      <tr>
-        <th>Checkbox</th>
-        <th>Gender</th>
-        <th>Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% User.all.each do |user| %>
-        <tr>
-          <td>
-            <label>
-              <%= check_box_tag 'team[user_ids][]', user.id %> <%= user.email %>
-            </label>
-          </td>
-          <td><%= user.male.nil? ? '-' : (user.male ? 'Male' : 'Female') %></td>
-          <td><%= "#{user.first_name} #{user.last_name}" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <div class="row justify-content-md-center">
+      <div class="col-md-9">
+        <table class="table table-sm table-hover datatable">
+          <thead>
+            <tr>
+              <th>Checkbox</th>
+              <th>Gender</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% User.all.each do |user| %>
+              <tr>
+                <td>
+                  <label>
+                    <%= check_box_tag 'team[user_ids][]', user.id %> <%= user.email %>
+                  </label>
+                </td>
+                <td><%= user.male.nil? ? '-' : (user.male ? 'Male' : 'Female') %></td>
+                <td><%= "#{user.first_name} #{user.last_name}" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
   <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog">

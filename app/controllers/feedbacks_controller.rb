@@ -1,5 +1,5 @@
 class FeedbacksController < ApplicationController
-  before_action :require_admin, only: [:index]
+  before_action :require_admin, except: [:new, :create]
 
   def new
     @feedback = Feedback.new
@@ -9,7 +9,7 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.new(feedback_params)
     if @feedback.save
       flash[:success] = "Thank you for your feedback"
-      redirect_to :back
+      redirect_to root_path
     else
       flash[:danger] = "We are sorry but there was an error, please fill the from again."
       render :new
