@@ -20,6 +20,9 @@
 @import "dataTables/jquery.dataTables";
 @import "devise_bootstrap_views";
 @import "progressive_render";
+$first-text: #111111;
+$second-text: #656565;
+$third-text: #959595;
 $main-color: #7302A1;
 html,body{
   margin: 0px;
@@ -46,7 +49,7 @@ a{
 a:hover{
   color: $main-color;
 }
-a.btn-primary {
+a.btn-primary, input[type="submit"], button.btn-primary {
   border-radius: 0px;
   padding: 15px 40px;
   box-sizing: border-box;
@@ -57,8 +60,9 @@ a.btn-primary {
   background: #7302A1;
   border: none;
   transition: color 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),background 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),border 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+  cursor: pointer;
 }
-a.btn-primary:hover{
+a.btn-primary:hover, input[type="submit"]:hover, button.btn-primary:hover{
   background: #390150;
 }
 a.btn-secondary {
@@ -72,9 +76,43 @@ a.btn-secondary {
   background: transparent;
   border: 1px solid white;
   transition: color 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),background 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),border 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+  cursor: pointer;
 }
 a.btn-secondary:hover{
   background: #ffffff;
   border: 1px solid white;
   color: black;
+}
+button.btn-default{
+  border-radius: 0px;
+  padding: 15px 40px;
+  box-sizing: border-box;
+  text-decoration: none;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 600;
+  background: $third-text;
+  border: 1px solid $third-text;
+  transition: color 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),background 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),border 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+  cursor: pointer;
+}
+button.btn-default:hover{
+  background: #ffffff;
+  border: 1px solid $third-text;
+  color: $third-text;
+}
+.navbar-toggler[aria-expanded="false"]{
+  z-index: 100;
+  background: white;
+}
+.navbar-toggler[aria-expanded="true"]{
+  @extend .navbar-toggler[aria-expanded="false"];
+  margin-top: 350px;
+}
+.collapse.show {
+  padding: 15px;
+  background: white;
+  z-index: 100;
+  border-radius: 10px;
+  box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.25);
 }

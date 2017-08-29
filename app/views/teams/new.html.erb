@@ -71,7 +71,7 @@
     </div>
 
   <p><small>Please make sure that you've selected at least one user.</small></p>
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Make Teams</button>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Make Teams</button>
 
   <% end %>
 
@@ -79,6 +79,7 @@
     $('.datatable').DataTable({
       // ajax: ..., autoWidth: false, pagingType: 'full_numbers', processing: true, serverSide: true, Optional, if you want full pagination controls. Check dataTables documentation to learn more about available options.
       // http://datatables.net/reference/option/pagingType
+      "lengthMenu": [ 25, 50, 75, 100 ]
     });
   </script>
 
