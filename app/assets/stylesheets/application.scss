@@ -83,7 +83,7 @@ a.btn-secondary:hover{
   border: 1px solid white;
   color: black;
 }
-button.btn-default{
+a.btn-default, button.btn-default{
   border-radius: 0px;
   padding: 15px 40px;
   box-sizing: border-box;
@@ -95,8 +95,9 @@ button.btn-default{
   border: 1px solid $third-text;
   transition: color 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),background 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),border 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
   cursor: pointer;
+  width: max-content;
 }
-button.btn-default:hover{
+a.btn-default:hover, button.btn-default:hover{
   background: #ffffff;
   border: 1px solid $third-text;
   color: $third-text;

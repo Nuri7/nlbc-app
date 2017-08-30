@@ -1,19 +1,22 @@
-<div class="container old-spacer">
-  <h3>All teams</h3>
+<div class="container" style="margin-top: 30px;">
+  <h5>All teams</h5>
+  <hr>
   <% if Team.any? %>
     <%= button_to "Delete all teams", {controller: "teams", action:"delete_all"}, data:{disable_with: "Processing ..."}, class:"btn btn-danger" %>
   <% end %>
-  <% @teams.each do |team| %>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div align="center" class="team" style="background:#eaeaea; border: 1px solid #eee;margin-bottom: 10px">
-          <% team.users.each do |user| %>
-            <%= user.email %> <br>
-          <% end %>
-          <%= link_to 'Open team', team_path(team) %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <div class="row justify-content-md-left">
+    <% @teams.each do |team| %>
 
+        <div class="col-md-6">
+          <div class="card" style="margin: 10px; padding: 10px;">
+            <% team.users.each do |user| %>
+              <p style="font-size: 14px;"><b>Name:</b> <%= "#{user.first_name} #{user.last_name}" %></p>
+              <p style="font-size: 14px;"><b>Email:</b> <%= user.email %></p>
+            <% end %>
+            <%= link_to 'Open team', team_path(team), class:"btn btn-default" %>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
 </div>
