@@ -53,6 +53,12 @@ class WelcomeController < ApplicationController
       flash[:danger] = "You can't delete admin from database!"
       redirect_to root_path
     else
+      passions = UserPassion.where(user_id: @user.id)
+      if passions.present?
+        passions.each do |passion|
+          passion.destroy
+        end
+      end
       @user.destroy
       flash[:notice] = "User was successfuly deleted from database."
       redirect_to :back
