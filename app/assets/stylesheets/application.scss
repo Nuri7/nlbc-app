@@ -101,24 +101,26 @@ button.btn-default:hover{
   border: 1px solid $third-text;
   color: $third-text;
 }
-.navbar-toggler[aria-expanded="false"]{
-  z-index: 100;
-  background: white;
-}
-.navbar-toggler[aria-expanded="true"]{
-  @extend .navbar-toggler[aria-expanded="false"];
-  margin-top: 350px;
-}
-.collapse.show {
-  padding: 15px;
-  background: white;
-  z-index: 100;
-  border-radius: 10px;
-  box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.25);
-}
-.transition {
-  padding: 15px;
-  background: white;
-  z-index: 100;
-  border-radius: 10px;
+@media screen and (max-width: 768px) {
+  .navbar-toggler[aria-expanded="false"]{
+    z-index: 100;
+    background: white;
+  }
+  .navbar-toggler[aria-expanded="true"]{
+    @extend .navbar-toggler[aria-expanded="false"];
+    margin-top: 350px;
+  }
+  .collapse.show {
+    padding: 15px;
+    background: white;
+    z-index: 100;
+    border-radius: 10px;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.25);
+  }
+  .transition {
+    padding: 15px;
+    background: white;
+    z-index: 100;
+    border-radius: 10px;
+  }
 }
