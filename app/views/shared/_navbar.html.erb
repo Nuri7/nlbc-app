@@ -3,6 +3,11 @@
     <a class="navbar-brand" href="<%= root_path %>">
       <%= image_tag 'logo.png' %>
     </a>
+    <% unless current_user %>
+      <button type="button" name="button" class="btn btn-green btn-sm btn-join" data-toggle="modal" data-target="#signUpModal" style="margin-top: -10px;">
+        Join
+      </button>
+    <% end %>
     <button class="navbar-toggler x" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -50,7 +55,7 @@
             </li>
           <% else %>
             <li class="nav-item">
-              <a class="nav-link" href="<%= new_user_session_path %>">Login</a>
+              <a class="nav-link" href="Javascript:void(0)" data-toggle="modal" data-target="#signInModal">Login</a>
             </li>
           <% end %>
         </ul>

@@ -20,10 +20,18 @@
 @import "dataTables/jquery.dataTables";
 @import "devise_bootstrap_views";
 @import "progressive_render";
+
+// text colors
 $first-text: #111111;
 $second-text: #656565;
 $third-text: #959595;
+// ui colors
 $main-color: #7302A1;
+$light-purple: #9f3d89;
+$orange: #ef9929;
+$light-green: #c3bb35;
+$green: #6b8c51;
+
 html,body{
   margin: 0px;
   padding: 0px;
@@ -49,7 +57,7 @@ a{
 a:hover{
   color: $main-color;
 }
-a.btn-primary, input[type="submit"], button.btn-primary {
+.button-configuration{
   border-radius: 0px;
   padding: 15px 40px;
   box-sizing: border-box;
@@ -57,50 +65,53 @@ a.btn-primary, input[type="submit"], button.btn-primary {
   overflow: hidden;
   color: #fff;
   font-weight: 600;
-  background: #7302A1;
   border: none;
   transition: color 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),background 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),border 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
   cursor: pointer;
 }
+// PRIMARY BUTTON
+a.btn-primary, input[type="submit"], button.btn-primary {
+  @extend .button-configuration;
+  background: #7302A1;
+}
 a.btn-primary:hover, input[type="submit"]:hover, button.btn-primary:hover{
   background: #390150;
 }
+// SECONDARY BUTTON
 a.btn-secondary {
-  border-radius: 0px;
-  padding: 15px 40px;
-  box-sizing: border-box;
-  text-decoration: none;
-  overflow: hidden;
-  color: #fff;
-  font-weight: 600;
+  @extend .button-configuration;
   background: transparent;
-  border: 1px solid white;
-  transition: color 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),background 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),border 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
-  cursor: pointer;
 }
 a.btn-secondary:hover{
   background: #ffffff;
   border: 1px solid white;
   color: black;
 }
+// DEFAULT - CLOSE BUTTON
 a.btn-default, button.btn-default{
-  border-radius: 0px;
-  padding: 15px 40px;
-  box-sizing: border-box;
-  text-decoration: none;
-  overflow: hidden;
-  color: #fff;
-  font-weight: 600;
+  @extend .button-configuration;
   background: $third-text;
   border: 1px solid $third-text;
-  transition: color 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),background 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),border 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
-  cursor: pointer;
   width: max-content;
 }
 a.btn-default:hover, button.btn-default:hover{
   background: #ffffff;
   border: 1px solid $third-text;
   color: $third-text;
+}
+// THIRD - green BUTTON
+a.btn-green, button.btn-green{
+  @extend .button-configuration;
+  background: $green;
+  width: max-content;
+}
+a.btn-green:hover, button.btn-green:hover{
+  background: $green * 0.9;
+  color: white;
+}
+.btn-join{
+  border-radius: 4px !important;
+  padding: 4px 30px !important;
 }
 @media screen and (max-width: 768px) {
   .navbar-toggler[aria-expanded="false"]{
