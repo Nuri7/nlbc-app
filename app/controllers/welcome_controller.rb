@@ -23,6 +23,9 @@ class WelcomeController < ApplicationController
   def trainers
   end
 
+  def privacy
+  end
+
   def subscribe_to_passion
     if UserPassion.where(user_id: params[:user_id], passion_id: params[:passion_id]).present?
       passion = Passion.find(params[:passion_id])

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :passions
   resources :feedbacks
 
+  get 'privacy-policy', to: 'welcome#privacy'
+
   get 'programming', to: 'welcome#programming'
   get 'dancing', to: 'welcome#dancing'
   get 'photography', to: 'welcome#photography'

@@ -19,26 +19,31 @@
 
     <div class="pull-right">
       <span>
-        <a href="#">Programming</a>
+        <a href="<%= privacy_policy_path %>">Privacy Policy</a>
       </span>
       <span>
-        <a href="#">Dancing</a>
+        <a href="<%= programming_path %>#passion-cover">Programming</a>
       </span>
       <span>
-        <a href="#">Photography</a>
+        <a href="<%= dancing_path %>#passion-cover">Dancing</a>
       </span>
       <span>
-        <a href="#">Boxing</a>
+        <a href="<%= photography_path %>#passion-cover">Photography</a>
       </span>
       <span>
-        <a href="#">QAJava</a>
+        <a href="<%= boxing_path %>#passion-cover">Boxing</a>
       </span>
       <span>
-        <a href="#">Trainers</a>
+        <a href="<%= qajava_path %>#passion-cover">QAJava</a>
       </span>
       <span>
-        <a href="#">Login</a>
+        <a href="<%= trainers_path %>">Trainers</a>
       </span>
+      <% unless current_user %>
+        <span>
+          <a href="Javascript:void(0)" data-toggle="modal" data-target="#signInModal">Login</a>
+        </span>
+      <% end %>
     </div>
   </div>
 </footer>
