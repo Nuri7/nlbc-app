@@ -19,6 +19,13 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.first_name = auth.info.name   # assuming the user model has a name
+      if auth.info.gender.present?
+        if auth.info.gender == 'male'
+          user.male = true
+        elsif auth.info.gender == 'female'
+          user.male = false
+        end
+      end
       # If you are using confirmable and the provider(s) you use validate emails,
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
