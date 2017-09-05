@@ -136,3 +136,8 @@ a.btn-green:hover, button.btn-green:hover{
     border-radius: 10px;
   }
 }
+.alert-info{
+  background-color: rgba($main-color, 0.4);
+  border-color: transparent;
+  color: white;
+}

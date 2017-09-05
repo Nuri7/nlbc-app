@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :programming, :dancing, :photography, :boxing, :trainers, :qajava, :privacy]
-  before_action :require_admin, only: [:delete_user, :all_users]
+  before_action :authenticate_admin!, only: [:delete_user, :all_users]
 
   def index
   end
@@ -49,10 +49,9 @@ class WelcomeController < ApplicationController
   end
 
 
-
   def delete_user
     @user = User.find(params[:id])
-    if @user.role_id == 2
+    if @user.role == 'admin'
       flash[:danger] = "You can't delete admin from database!"
       redirect_to root_path
     else
@@ -68,12 +67,4 @@ class WelcomeController < ApplicationController
     end
   end
 
-  private
-
-  def require_admin
-    if current_user.role.name != 'admin'
-      flash[:danger] = "You can't access that page."
-      redirect_to root_path
-    end
-  end
 end

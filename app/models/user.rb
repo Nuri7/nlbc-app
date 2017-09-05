@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :user_passions
   has_many :passions, through: :user_passions
+  has_many :teachers
 
 
   def self.from_omniauth(auth)

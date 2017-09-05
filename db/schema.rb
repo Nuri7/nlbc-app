@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905141729) do
+ActiveRecord::Schema.define(version: 20170905162416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bootcamp_challenges", force: :cascade do |t|
+    t.integer  "bootcamp_id"
+    t.integer  "challenge_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["bootcamp_id"], name: "index_bootcamp_challenges_on_bootcamp_id", using: :btree
+    t.index ["challenge_id"], name: "index_bootcamp_challenges_on_challenge_id", using: :btree
+  end
 
   create_table "bootcamps", force: :cascade do |t|
     t.string   "title"
@@ -21,7 +30,17 @@ ActiveRecord::Schema.define(version: 20170905141729) do
     t.datetime "updated_at",  null: false
     t.integer  "passion_id"
     t.text     "description"
+    t.date     "date"
+    t.time     "time"
+    t.string   "location"
     t.index ["passion_id"], name: "index_bootcamps_on_passion_id", using: :btree
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -47,6 +66,15 @@ ActiveRecord::Schema.define(version: 20170905141729) do
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "challenge_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["challenge_id"], name: "index_teachers_on_challenge_id", using: :btree
+    t.index ["user_id"], name: "index_teachers_on_user_id", using: :btree
   end
 
   create_table "teams", force: :cascade do |t|
@@ -95,8 +123,12 @@ ActiveRecord::Schema.define(version: 20170905141729) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bootcamp_challenges", "bootcamps"
+  add_foreign_key "bootcamp_challenges", "challenges"
   add_foreign_key "bootcamps", "passions"
   add_foreign_key "feedbacks", "bootcamps"
+  add_foreign_key "teachers", "challenges"
+  add_foreign_key "teachers", "users"
   add_foreign_key "user_passions", "passions"
   add_foreign_key "user_passions", "users"
 end
