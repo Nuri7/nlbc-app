@@ -1,4 +1,4 @@
-class WelcomeController < ApplicationController
+class NlbcController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :programming, :dancing, :photography, :boxing, :trainers, :qajava, :privacy]
   before_action :authenticate_admin!, only: [:delete_user, :all_users]
 
@@ -44,7 +44,7 @@ class WelcomeController < ApplicationController
     end
   end
 
-  def all_users
+  def remove_users
     @users = User.all
   end
 

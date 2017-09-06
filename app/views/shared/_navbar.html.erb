@@ -18,22 +18,22 @@
       <div class="my-2 my-lg-0">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="<%= programming_path %>#passion-cover">Programming</a>
+            <a class="nav-link" href="<%= nlbc_programming_path %>#passion-cover">Programming</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%= dancing_path %>#passion-cover">Dancing</a>
+            <a class="nav-link" href="<%= nlbc_dancing_path %>#passion-cover">Dancing</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%= photography_path %>#passion-cover">Photography</a>
+            <a class="nav-link" href="<%= nlbc_photography_path %>#passion-cover">Photography</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%= boxing_path %>#passion-cover">Boxing</a>
+            <a class="nav-link" href="<%= nlbc_boxing_path %>#passion-cover">Boxing</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%= qajava_path %>#passion-cover">QA Java</a>
+            <a class="nav-link" href="<%= nlbc_qajava_path %>#passion-cover">QA Java</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%= trainers_path %>">Trainers</a>
+            <a class="nav-link" href="<%= nlbc_trainers_path %>">Trainers</a>
           </li>
           <% if current_user %>
             <li class="nav-item dropdown">
@@ -46,7 +46,7 @@
                   <%= link_to 'Feedbacks', feedbacks_path, class: 'dropdown-item' %>
                   <%= link_to 'Team generator', new_team_path, class: 'dropdown-item' %>
                   <%= link_to 'Teams', teams_path, class: 'dropdown-item' %>
-                  <%= link_to 'Delete users', delete_users_path, class: 'dropdown-item' %>
+                  <%= link_to 'Delete users', nlbc_remove_users_path, class: 'dropdown-item' %>
                 <% end %>
                 <%= link_to 'Add new feedback', new_feedback_path, class: 'dropdown-item' %>
                 <%= link_to('Logout', destroy_user_session_path,
