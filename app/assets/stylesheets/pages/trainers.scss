@@ -1,0 +1,22 @@
+// text colors
+$first-text: #111111;
+$second-text: #656565;
+$third-text: #959595;
+// ui colors
+$main-color: #7302A1;
+$light-purple: #9f3d89;
+$orange: #ef9929;
+$light-green: #c3bb35;
+$green: #6b8c51;
+#trainer-filters{
+  margin-bottom: 100px;
+
+  input[type="submit"]{
+    padding: 0.3rem 2rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .btn{
+    border-radius: 0px;
+  }
+}

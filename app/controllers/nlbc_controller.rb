@@ -21,6 +21,14 @@ class NlbcController < ApplicationController
   end
 
   def trainers
+    @challenges = Challenge.all
+    @passions = Passion.all
+    @locations = Bootcamp.all.collect(&:location).uniq.compact
+    if (params[:passions] || params[:challenges] || params[:locations]).present?
+      @trainers = Teacher.search_trainers(params)
+    else
+      @trainers = User.where(id: Teacher.all.map(&:user_id))
+    end
   end
 
   def privacy
