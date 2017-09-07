@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  before_save :correct_role_format
+  before_update :correct_role_format
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "120x120>" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 5.megabytes
@@ -40,6 +42,10 @@ class User < ApplicationRecord
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  def correct_role_format
+    self.role.downcase! if self.role
   end
 
 end

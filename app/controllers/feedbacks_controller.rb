@@ -24,7 +24,7 @@ class FeedbacksController < ApplicationController
     bootcamp = params[:id].to_i
 
     @bootcamp_name = Bootcamp.find(bootcamp)
-    @feedbacks = Feedback.where(bootcamp_id: bootcamp).order(created_at: :desc).paginate(:page => params[:page], :per_page => 3)
+    @feedbacks = Feedback.where(bootcamp_id: bootcamp).order(created_at: :desc).page(params[:page]).per(3)
   end
 
   private

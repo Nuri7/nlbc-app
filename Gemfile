@@ -41,11 +41,13 @@ gem 'bootstrap', '~> 4.0.0.beta'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'jquery-datatables-rails', '~> 3.4.0'
-gem 'will_paginate', '~> 3.1.0'
-gem 'will_paginate-bootstrap'
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 gem "font-awesome-rails"
 gem 'progressive_render'
 gem 'omniauth-facebook'
 gem "mini_magick"
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3.0'
+gem 'activeadmin'
+gem 'formadmin'

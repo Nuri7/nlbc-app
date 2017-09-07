@@ -71,5 +71,5 @@
     </div>
   </div>
   <% end %>
-  <%= will_paginate @feedbacks, renderer: BootstrapPagination::Rails %>
+  <%= paginate @feedbacks, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
 </div>
