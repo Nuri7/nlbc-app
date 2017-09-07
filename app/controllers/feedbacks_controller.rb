@@ -30,7 +30,7 @@ class FeedbacksController < ApplicationController
   private
 
   def require_admin
-    if current_user.role.name != 'admin'
+    if current_user.role != 'admin'
       flash[:danger] = "You can't access that page."
       redirect_to root_path
     end
