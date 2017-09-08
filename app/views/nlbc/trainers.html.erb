@@ -68,6 +68,30 @@
 <div id="trainers">
   <div class="container">
     <div class="row justify-content-md-left">
+      <% @trainers.each do |trainer| %>
+        <div class="col-sm-4 col-xs-12">
+          <div class="card text-center" style="margin-bottom: 20px;">
+            <%= image_tag (trainer.avatar.present? ? trainer.avatar.url(:medium) : 'missing.png'), class: 'rounded-image' %>
+            <h6>
+              <span class="badge badge-pill badge-light">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+              </span>
+            </h6>
+            <div class="card-body">
+              <h4 class="card-title"><%= "#{trainer.first_name} #{trainer.last_name}".capitalize %></h4>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic laborum beatae dolor,
+                minima animi esse, nam unde distinctio harum enim, ducimus eaque doloremque non.
+                Sed soluta quas, odio aliquid necessitatibus.
+              </p>
+              <p class="card-foot">- Programmer -</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
       <div class="col-sm-4 col-xs-12">
         <div class="card text-center" style="margin-bottom: 20px;">
           <%= image_tag 'https://dktovmf07nr2a.cloudfront.net/static/images/face.jpg', class: 'rounded-image' %>

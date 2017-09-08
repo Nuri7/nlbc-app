@@ -23,7 +23,7 @@ class NlbcController < ApplicationController
   def trainers
     @challenges = Challenge.all
     @passions = Passion.all
-    @locations = Bootcamp.all.collect(&:location).uniq.compact
+    @locations = Bootcamp.all.collect{|bootcamp| bootcamp.location unless bootcamp.location.empty? }.uniq.compact
     if (params[:passions] || params[:challenges] || params[:locations]).present?
       @trainers = Teacher.search_trainers(params)
     else

@@ -11,8 +11,7 @@ ActiveAdmin.register User do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-# NOTE fix gender and avatar
-
+  before_action :left_sidebar!, only: [:index]
   form do |f|
     f.semantic_errors
     f.inputs do
@@ -26,6 +25,51 @@ ActiveAdmin.register User do
 
   show do
     attributes_table :email, :first_name, :last_name, :male, :provider, :role, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :created_at, :updated_at
+  end
+
+  index do
+    selectable_column
+    column :id
+    column :email
+    column :first_name
+    column :last_name
+    column "Gender Male ?", :male do |user|
+      user.male
+    end
+    column :provider
+    column :role
+    column :sign_in_count
+    column :current_sign_in_at
+    column :last_sign_in_at
+    column :current_sign_in_ip
+    column :last_sign_in_ip
+    column :created_at
+    column :updated_at
+    actions
+  end
+
+  show do
+    attributes_table do
+      row :email
+      row :first_name
+      row :last_name
+      row "Gender Male ?", :male do |user|
+        user.male
+      end
+      row :provider
+      row :role
+      row :sign_in_count
+      row :current_sign_in_at
+      row :last_sign_in_at
+      row :current_sign_in_ip
+      row :last_sign_in_ip
+      row :created_at
+      row :updated_at
+      row :avatar do |user|
+        image_tag (user.avatar.present? ? user.avatar.url(:thumb) : 'missing.png'), height: 110
+      end
+    end
+    active_admin_comments
   end
 
 end

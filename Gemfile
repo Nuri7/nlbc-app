@@ -51,3 +51,4 @@ gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3.0'
 gem 'activeadmin'
 gem 'formadmin'
+gem 'active_admin_sidebar', git: 'https://github.com/activeadmin-plugins/active_admin_sidebar.git'

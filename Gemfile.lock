@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/activeadmin-plugins/active_admin_sidebar.git
+  revision: 73502074af05835dd2a2c233a45aef926b43df4a
+  specs:
+    active_admin_sidebar (1.0.0)
+      activeadmin
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -290,6 +297,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_admin_sidebar!
   activeadmin
   aws-sdk (~> 2.3.0)
   better_errors

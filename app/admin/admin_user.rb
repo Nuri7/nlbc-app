@@ -1,6 +1,6 @@
 ActiveAdmin.register AdminUser do
   permit_params :email, :password, :password_confirmation
-
+  before_action :left_sidebar!, only: [:index]
   index do
     selectable_column
     id_column

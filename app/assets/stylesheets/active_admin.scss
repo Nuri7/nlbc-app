@@ -10,6 +10,13 @@
 // Active Admin's got SASS!
 .active_admin{
   @import 'formadmin/formadmin';
+  @import "active_admin_sidebar";
+  #sidebar{
+    transform: translateX(260px);
+  }
+  .index_content{
+    transform: translateX(270px);
+  }
 }
 
 
