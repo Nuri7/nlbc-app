@@ -3,7 +3,7 @@ ActiveAdmin.register User do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  permit_params :first_name, :last_name, :male, :provider, :role
+  permit_params :email, :first_name, :last_name, :male, :provider, :role, :password, :password_confirmation
 #
 # or
 #
@@ -16,6 +16,9 @@ ActiveAdmin.register User do
   form do |f|
     f.semantic_errors
     f.inputs do
+      f.input :email, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
+      f.input :password, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
+      f.input :password_confirmation, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
       f.input :first_name, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
       f.input :last_name, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
       f.input :male, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
