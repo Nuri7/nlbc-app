@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907154303) do
+ActiveRecord::Schema.define(version: 20170908114222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 20170907154303) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "passion_id"
+    t.index ["passion_id"], name: "index_challenges_on_passion_id", using: :btree
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -161,6 +163,7 @@ ActiveRecord::Schema.define(version: 20170907154303) do
   add_foreign_key "bootcamp_challenges", "bootcamps"
   add_foreign_key "bootcamp_challenges", "challenges"
   add_foreign_key "bootcamps", "passions"
+  add_foreign_key "challenges", "passions"
   add_foreign_key "feedbacks", "bootcamps"
   add_foreign_key "teachers", "challenges"
   add_foreign_key "teachers", "users"
