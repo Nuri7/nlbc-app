@@ -7,6 +7,6 @@ class PassionsController < ApplicationController
   private
 
   def team_params
-    params.require(:passion).permit(:title)
+    params.require(:passion).permit(:title, :category_id)
   end
 end

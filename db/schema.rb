@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908120708) do
+ActiveRecord::Schema.define(version: 20170909160342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,12 @@ ActiveRecord::Schema.define(version: 20170908120708) do
     t.index ["passion_id"], name: "index_bootcamps_on_passion_id", using: :btree
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "challenges", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -98,8 +104,10 @@ ActiveRecord::Schema.define(version: 20170908120708) do
 
   create_table "passions", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_passions_on_category_id", using: :btree
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -166,6 +174,7 @@ ActiveRecord::Schema.define(version: 20170908120708) do
   add_foreign_key "bootcamps", "passions"
   add_foreign_key "challenges", "passions"
   add_foreign_key "feedbacks", "bootcamps"
+  add_foreign_key "passions", "categories"
   add_foreign_key "teachers", "challenges"
   add_foreign_key "teachers", "users"
   add_foreign_key "user_passions", "passions"

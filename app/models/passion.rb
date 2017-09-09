@@ -1,4 +1,5 @@
 class Passion < ApplicationRecord
+  belongs_to :category
   has_many :challenges
   has_many :bootcamps
 

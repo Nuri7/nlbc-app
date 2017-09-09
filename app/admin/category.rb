@@ -1,10 +1,10 @@
-ActiveAdmin.register Passion do
-  menu priority: 2
+ActiveAdmin.register Category do
   before_action :left_sidebar!, only: [:index]
+  permit_params :name
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :title, :category_id
+# permit_params :list, :of, :attributes, :on, :model
 #
 # or
 #

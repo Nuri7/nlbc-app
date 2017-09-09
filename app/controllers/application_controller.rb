@@ -5,16 +5,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def get_passions
-    @passions = Passion.all
+  def all_categories
+    @categories = Category.all
   end
 
-  def get_bootcamps
-    @bootcamps = Bootcamp.all
-  end
-
-  helper_method :get_passions
-  helper_method :get_bootcamps
+  helper_method :all_categories
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :male])
