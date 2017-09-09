@@ -81,6 +81,7 @@ a.btn-primary:hover, input[type="submit"]:hover, button.btn-primary:hover{
 a.btn-secondary {
   @extend .button-configuration;
   background: transparent;
+  border: 1px solid white;
 }
 a.btn-secondary:hover{
   background: #ffffff;
