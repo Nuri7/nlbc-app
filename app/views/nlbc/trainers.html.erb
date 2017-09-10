@@ -30,7 +30,7 @@
         <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Challenge
         </button>
-        <div id="challenges_drop" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div id="challenges_drop" class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
           <% @challenges.each do |challenge| %>
             <div class="dropdown-item">
               <label>
@@ -46,7 +46,7 @@
         <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Location
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
           <% @locations.each do |location| %>
             <div class="dropdown-item">
               <label>
@@ -93,7 +93,7 @@
   </div>
 </div>
 <script type="text/javascript">
-$(document).on('click', 'div .dropdown-menu', function (e) {
+$(document).on('click', 'div .drop-menu', function (e) {
   e.stopPropagation();
 });
 </script>
