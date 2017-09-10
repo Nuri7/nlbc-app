@@ -5,9 +5,17 @@ class Teacher < ApplicationRecord
   def self.search_trainers(params)
     trainers = Teacher.all
 
-
     if params['challenges'].present?
-      trainers = trainers.where(challenge_id: params['challenges'])
+      selected_teachers = []
+      teachers = trainers.where(challenge_id: params['challenges'])
+      trainers.each do |trainer|
+        potential_trainer = Teacher.where(id: trainer.id)
+        trainer_challenges = potential_trainer.map{|trainer| trainer.challenge_id.to_s}.compact.uniq
+        if params['challenges'].sort == trainer_challenges.sort
+          selected_teachers << trainer.id
+        end
+      end
+      trainers = trainers.where(id: selected_teachers)
     end
 
     if params['locations'].present?
