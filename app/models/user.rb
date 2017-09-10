@@ -17,6 +17,9 @@ class User < ApplicationRecord
   has_many :passions, through: :user_passions
   has_many :teachers
 
+  has_many :user_challenges
+  has_many :challenges, through: :user_challenges
+
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

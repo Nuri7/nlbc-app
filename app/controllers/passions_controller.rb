@@ -1,5 +1,5 @@
 class PassionsController < ApplicationController
-
+  skip_before_action :authenticate_user!
   def show
     @passion = Passion.find(params[:id])
   end

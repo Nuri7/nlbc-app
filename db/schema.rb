@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170910102021) do
+ActiveRecord::Schema.define(version: 20170910173606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,16 @@ ActiveRecord::Schema.define(version: 20170910102021) do
     t.boolean  "mix_genders"
   end
 
+  create_table "user_challenges", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "challenge_id"
+    t.integer  "times"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["challenge_id"], name: "index_user_challenges_on_challenge_id", using: :btree
+    t.index ["user_id"], name: "index_user_challenges_on_user_id", using: :btree
+  end
+
   create_table "user_passions", force: :cascade do |t|
     t.integer "user_id"
     t.integer "passion_id"
@@ -185,6 +195,8 @@ ActiveRecord::Schema.define(version: 20170910102021) do
   add_foreign_key "passions", "categories"
   add_foreign_key "teachers", "challenges"
   add_foreign_key "teachers", "users"
+  add_foreign_key "user_challenges", "challenges"
+  add_foreign_key "user_challenges", "users"
   add_foreign_key "user_passions", "passions"
   add_foreign_key "user_passions", "users"
 end
