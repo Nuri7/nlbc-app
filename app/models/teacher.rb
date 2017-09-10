@@ -8,8 +8,8 @@ class Teacher < ApplicationRecord
     if params['challenges'].present?
       selected_teachers = []
       teachers = trainers.where(challenge_id: params['challenges'])
-      trainers.each do |trainer|
-        potential_trainer = Teacher.where(id: trainer.id)
+      teachers.each do |trainer|
+        potential_trainer = Teacher.where(user_id: trainer.user_id)
         trainer_challenges = potential_trainer.map{|trainer| trainer.challenge_id.to_s}.compact.uniq
         if params['challenges'].sort == trainer_challenges.sort
           selected_teachers << trainer.id
