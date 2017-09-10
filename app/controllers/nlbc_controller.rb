@@ -1,5 +1,5 @@
 class NlbcController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :programming, :dancing, :photography, :boxing, :trainers, :qajava, :privacy]
+  skip_before_action :authenticate_user!, except: [:remove_users, :delete_user]
   before_action :authenticate_admin!, only: [:delete_user, :all_users]
 
   def index
