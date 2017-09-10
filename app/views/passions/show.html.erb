@@ -1,8 +1,8 @@
-<div id="passion-cover" class="jumbotron" style="background-image: url('<%= choose_cover_image(@passion) %>')">
+<div id="passion-cover" class="jumbotron" style="background-image: url('<%= @passion.image.url %>')">
   <div class="overlay"></div>
   <div class="row justify-content-md-center d-flex h-100">
     <div class="col-md-8 content align-self-center">
-      <div align="center" class="main-text"><%= @passion.category.name.capitalize %> Bootcamp</div>
+      <div align="center" class="main-text"><%= @passion.title.capitalize %> Bootcamp</div>
       <div align="center" class="secondary-text">Learn AND Teach!</div>
       <div align="center" class="paragraph">FOLLOW-ALONG  SELF-PRACTISE TEAM-CHALLENGE</div>
       <div align="center">
