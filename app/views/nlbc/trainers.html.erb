@@ -12,14 +12,14 @@
     <div class="row justify-content-md-center">
       <div class="col-md-3">
         <div class="dropdown">
-          <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button id="passionButton" class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Passion
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <% @passions.each do |passion| %>
               <div class="dropdown-item">
-                <label>
-                  <%= check_box_tag('passions[]', passion.id, false, :onclick=>"Challenges(this);")%> <%= passion.title.capitalize %>
+                <label id="passion__<%=passion.id%>">
+                  <%= radio_button_tag('passions[]', passion.id, false, onClick: "Challenges(this);")%> <%= passion.title.capitalize %>
                 </label>
               </div>
             <% end %>
@@ -101,6 +101,8 @@ $(document).on('click', 'div .dropdown-menu', function (e) {
 </script>
 <script type="text/javascript">
   function Challenges(el){
+    var id = '#'+'passion__' + el.value;
+    $("#passionButton")[0].innerHTML = $(id).text();
     var passions = new Array();
     $.each($('input[name="passions[]"]'), function(index, val){
       if (val.checked){

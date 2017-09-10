@@ -19,4 +19,8 @@ $green: #6b8c51;
   .btn{
     border-radius: 0px;
   }
+  input[type="radio"]{
+    visibility: hidden;
+    margin-left: -20px;
+  }
 }
