@@ -19,7 +19,7 @@
             <% @passions.each do |passion| %>
               <div class="dropdown-item">
                 <label>
-                  <%= check_box_tag 'passions[]', passion.id %> <%= passion.title.capitalize %>
+                  <%= check_box_tag('passions[]', passion.id, false, :onclick=>"Challenges(this);")%> <%= passion.title.capitalize %>
                 </label>
               </div>
             <% end %>
@@ -31,7 +31,7 @@
           <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Challenge
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <div id="challenges_drop" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <% @challenges.each do |challenge| %>
               <div class="dropdown-item">
                 <label>
@@ -162,4 +162,29 @@
 $(document).on('click', 'div .dropdown-menu', function (e) {
   e.stopPropagation();
 });
+</script>
+<script type="text/javascript">
+  function Challenges(el){
+    var passions = new Array();
+    $.each($('input[name="passions[]"]'), function(index, val){
+      if (val.checked){
+        passions.push(val.value);
+      }
+    });
+    $.ajax({
+      url: "/nlbc/dropdown_challenges",
+      type: 'GET',
+      data: {
+        passion_ids: passions
+      },
+      dataType: 'json',
+      success: function(data) {
+        $("#challenges_drop")[0].innerHTML = "";
+        data.forEach(function(item) {
+          $("#challenges_drop")[0].innerHTML += '<div class="dropdown-item"><label><input type="checkbox" name="challenges[]" id="challenges_" value="'+item[0]+'">'+' '+item[1]+'</label></div>'
+        });
+      }
+    });
+  };
+
 </script>

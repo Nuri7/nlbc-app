@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :feedbacks
 
   namespace :nlbc do
+    get :dropdown_challenges
     get :privacy
     get :programming
     get :dancing

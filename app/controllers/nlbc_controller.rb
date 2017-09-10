@@ -31,6 +31,16 @@ class NlbcController < ApplicationController
     end
   end
 
+  def dropdown_challenges
+    if params['passion_ids'].present?
+      @options = Passion.where(id: params['passion_ids']).map{|passion| passion.challenges}
+      render json: @options.map{|x| x if !x.empty?}.compact.flatten.map{|x| [x.id, x.title]}
+    else
+      @options = Challenge.all
+      render json: @options.map{|x| [x.id, x.title]}
+    end
+  end
+
   def privacy
   end
 
