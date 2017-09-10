@@ -15,6 +15,7 @@ $green: #6b8c51;
     padding: 0.3rem 2rem;
     font-size: 0.875rem;
     line-height: 1.5;
+    width: 350px;
   }
   .btn{
     border-radius: 0px;
@@ -22,5 +23,12 @@ $green: #6b8c51;
   input[type="radio"]{
     visibility: hidden;
     margin-left: -20px;
+  }
+  button[type="button"]{
+    margin-bottom: 20px;
+    width: 350px;
+  }
+  .dropdown-menu{
+    width: 350px;
   }
 }
