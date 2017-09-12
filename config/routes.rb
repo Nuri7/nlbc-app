@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :passions
   resources :feedbacks
 
+  # for stripe
+  resources :charges
+
   namespace :nlbc do
     get :dropdown_challenges
     get :privacy
