@@ -15,6 +15,12 @@
 //= require bootstrap-sprockets
 //= require progressive_render
 //= require jquery_ujs
+//= require best_in_place
 //= require dataTables/jquery.dataTables
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+});

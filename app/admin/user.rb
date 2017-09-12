@@ -3,7 +3,8 @@ ActiveAdmin.register User do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  permit_params :email, :first_name, :last_name, :male, :provider, :role, :password, :password_confirmation
+  permit_params :email, :first_name, :last_name, :male, :provider, :role,
+                :password, :password_confirmation, :description, :passion
 #
 # or
 #
@@ -23,6 +24,8 @@ ActiveAdmin.register User do
       f.input :last_name, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
       f.input :male, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
       f.input :role, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
+      f.input :description, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
+      f.input :passion, as: :select, :collection => Passion.all.map{|passion| passion.title.capitalize},:wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
     end
     f.submit
   end
@@ -36,6 +39,8 @@ ActiveAdmin.register User do
     column "Gender Male ?", :male do |user|
       user.male
     end
+    column :passion
+    column :description
     column :provider
     column :role
     column :sign_in_count

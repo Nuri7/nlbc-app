@@ -79,11 +79,9 @@
             <div class="card-body">
               <h4 class="card-title"><%= "#{trainer.first_name} #{trainer.last_name}".capitalize %></h4>
               <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic laborum beatae dolor,
-                minima animi esse, nam unde distinctio harum enim, ducimus eaque doloremque non.
-                Sed soluta quas, odio aliquid necessitatibus.
+                <%= trainer.description %>
               </p>
-              <p class="card-foot">- Programmer -</p>
+              <p class="card-foot">- <%= trainer.passion %> -</p>
             </div>
           </div>
         </div>

@@ -69,6 +69,9 @@ GEM
     aws-sdk-resources (2.3.22)
       aws-sdk-core (= 2.3.22)
     bcrypt (3.1.11)
+    best_in_place (3.0.3)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -300,6 +303,7 @@ DEPENDENCIES
   active_admin_sidebar!
   activeadmin
   aws-sdk (~> 2.3.0)
+  best_in_place (~> 3.0.1)
   better_errors
   binding_of_caller
   bootstrap (~> 4.0.0.beta)
