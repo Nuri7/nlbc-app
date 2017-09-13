@@ -70,7 +70,7 @@ a:hover{
   cursor: pointer;
 }
 // PRIMARY BUTTON
-a.btn-primary, input[type="submit"], button.btn-primary {
+a.btn-primary, input[type="submit"], button.btn-primary, button.stripe-button-el {
   @extend .button-configuration;
   background: #7302A1;
 }
