@@ -8,7 +8,8 @@ class ChargesController < ApplicationController
     # Amount in cents NOTE update from params!!!!!!!!!
     @show_amount = challenges.map{|challenge| challenge.price}.compact.inject(:+)
     @amount = @show_amount * 100
-
+    @challenges = challenges
+    
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
