@@ -1,6 +1,7 @@
 <%= form_tag charges_path do %>
 <input type="hidden" name="trainer_id" value="<%= trainer.id %>">
 <input type="hidden" name="trainer_email" value="<%= trainer.email %>">
+<input type="hidden" name="selected_challenges" value="<%= @selected_challenges %>">
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
@@ -8,21 +9,20 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: $5.00</span>
+      <span>Amount: $<%= params[:challenges].present? ? Challenge.where(id: params[:challenges]).map{|challenge| challenge.price}.compact.inject(:+) : 0 %>.00</span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="You are paying for <%= params[:challenges].present? ? params[:challenges].count : 0 %> challenges."
-          data-amount="*100"
+          data-description="Selected challenges: <%= params[:challenges].present? ? params[:challenges].count : 0 %>"
+          data-amount="<%= (params[:challenges].present? ? Challenge.where(id: params[:challenges]).map{|challenge| challenge.price}.compact.inject(:+) : 0) * 100 %>"
           data-locale="auto">
     Stripe.setPublishableKey("<%= Rails.configuration.stripe[:publishable_key] %>");
   </script>
 <% end %>
 <script type="text/javascript">
     $(document).ready(function(){
-        $(".stripe-button-el span").remove();
             $("button.stripe-button-el").removeAttr('style').css({
               "border-radius": "0px",
               "padding": "15px 40px",

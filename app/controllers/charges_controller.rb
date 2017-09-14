@@ -4,8 +4,10 @@ class ChargesController < ApplicationController
   end
 
   def create
+    challenges = Challenge.where(id: params["selected_challenges"].split(','))
     # Amount in cents NOTE update from params!!!!!!!!!
-    @amount = 500
+    @show_amount = challenges.map{|challenge| challenge.price}.compact.inject(:+)
+    @amount = @show_amount * 100
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
