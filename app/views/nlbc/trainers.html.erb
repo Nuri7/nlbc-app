@@ -76,9 +76,7 @@
                 <div class="col-md-3">
                   <div class="row justify-content-md-center">
                     <%= image_tag (trainer.avatar.present? ? trainer.avatar.url(:thumb) : 'missing.png'), class: 'rounded-image' %>
-                    <label align="center" class="amount">
-                      <span>Amount: $<%= params[:challenges].present? ? Challenge.where(id: params[:challenges]).map{|challenge| challenge.price}.compact.inject(:+) : 0 %>.00</span>
-                    </label>
+                    
                   </div>
                 </div>
                 <div class="col-md-9">
@@ -99,7 +97,7 @@
                         </div>
                         <div class="col-md-9">
                           <div class="inner-card-main-text">Passion</div>
-                          <div class="inner-card-text">Passion</div>
+                          <div class="inner-card-text"><%= trainer.passion.capitalize %></div>
                         </div>
                       </div>
                     </div>

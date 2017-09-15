@@ -16,21 +16,5 @@
           data-amount="<%= (params[:challenges].present? ? Challenge.where(id: params[:challenges]).map{|challenge| challenge.price}.compact.inject(:+) : 0) * 100 %>"
           data-locale="auto">
   </script>
+  <button type="submit" class="btn btn-primary" style="padding: 6px 8px; font-weight: 200; font-size: 15px;">Book me</button>
 <% end %>
-<script type="text/javascript">
-    $(document).ready(function(){
-            $("button.stripe-button-el").removeAttr('style').css({
-              "border-radius": "0px",
-              "padding": "3px 4px",
-              "box-sizing": "border-box",
-              "text-decoration": "none",
-              "overflow": "hidden",
-              "color": "#fff",
-              "font-weight": "400",
-              "font-size": "15px",
-              "border": "none",
-              "transition": "color 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),background 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),border 0.7s cubic-bezier(0.215, 0.61, 0.355, 1)",
-              "background":"#7302A1",
-              "cursor": "pointer" }).html("Book me");
-        });
-</script>
