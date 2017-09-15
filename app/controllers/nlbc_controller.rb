@@ -12,7 +12,7 @@ class NlbcController < ApplicationController
     @locations = Bootcamp.all.collect{|bootcamp| bootcamp.location unless bootcamp.location.empty? }.uniq.compact
     if (params[:passions] || params[:challenges] || params[:locations]).present?
       @trainers = Teacher.search_trainers(params)
-      @selected_challenges = params[:challenges].join(',')
+      @selected_challenges = params[:challenges].join(',') unless params[:challenges].nil?
     else
       @trainers = User.where(id: Teacher.all.map(&:user_id))
     end
