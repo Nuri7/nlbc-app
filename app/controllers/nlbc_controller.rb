@@ -5,21 +5,6 @@ class NlbcController < ApplicationController
   def index
   end
 
-  def programming
-  end
-
-  def dancing
-  end
-
-  def photography
-  end
-
-  def boxing
-  end
-
-  def qajava
-  end
-
   def trainers
     @selected_challenges = nil
     @challenges = Challenge.all

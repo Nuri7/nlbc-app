@@ -8,9 +8,6 @@
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="amount">
-      <span>Amount: $<%= params[:challenges].present? ? Challenge.where(id: params[:challenges]).map{|challenge| challenge.price}.compact.inject(:+) : 0 %>.00</span>
-    </label>
   </article>
 
   <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
@@ -25,12 +22,13 @@
     $(document).ready(function(){
             $("button.stripe-button-el").removeAttr('style').css({
               "border-radius": "0px",
-              "padding": "15px 40px",
+              "padding": "3px 4px",
               "box-sizing": "border-box",
               "text-decoration": "none",
               "overflow": "hidden",
               "color": "#fff",
-              "font-weight": "600",
+              "font-weight": "400",
+              "font-size": "15px",
               "border": "none",
               "transition": "color 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),background 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),border 0.7s cubic-bezier(0.215, 0.61, 0.355, 1)",
               "background":"#7302A1",

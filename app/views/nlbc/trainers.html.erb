@@ -1,107 +1,146 @@
 <div class="container">
   <p align="center" class="paragraph" style="margin: 40px auto 40px auto;">
-    Find your on demand private trainer. The content will be the same but every teacher can add their own specialty
-    and support and extra challenges. We advice to follow a bootcamp first, but individual training is possible without.
+    Find your on demand private trainer. The content will be the same but every teacher can add their own specialty and support and extra challenges. We advice to follow a bootcamp first, but individual training is possible without.
   </p>
   <p align="center" class="paragraph" style="margin: -20px auto 20px auto;">Meet the people who make learning fun!</p>
 </div>
 
 <div id="trainer-filters" class="container col-md-6">
   <%= form_for nlbc_trainers_path, method: :get do %>
-    <div class="row justify-content-md-center">
-      <div class="dropdown trainer-filtering">
-        <button id="passionButton" class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Passion
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <% @passions.each do |passion| %>
-            <div class="dropdown-item">
-              <label id="passion__<%=passion.id%>">
-                <%= radio_button_tag('passions[]', passion.id, false, onClick: "Challenges(this);")%> <%= passion.title.capitalize %>
-              </label>
-            </div>
-          <% end %>
+  <div class="row justify-content-md-center">
+    <div class="dropdown trainer-filtering">
+      <button id="passionButton" class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Passion
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% @passions.each do |passion| %>
+        <div class="dropdown-item">
+          <label id="passion__<%=passion.id%>">
+            <%= radio_button_tag('passions[]', passion.id, false, onClick: "Challenges(this);")%>
+            <%= passion.title.capitalize %>
+          </label>
         </div>
+        <% end %>
       </div>
     </div>
-    <div class="row justify-content-md-center">
-      <div class="dropdown trainer-filtering">
-        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Challenge
-        </button>
-        <div id="challenges_drop" class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
-          <% @challenges.each do |challenge| %>
-            <div class="dropdown-item">
-              <label>
-                <%= check_box_tag 'challenges[]', challenge.id %> <%= challenge.title.capitalize %>
-              </label>
-            </div>
-          <% end %>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="dropdown trainer-filtering">
+      <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Challenge
+      </button>
+      <div id="challenges_drop" class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
+        <% @challenges.each do |challenge| %>
+        <div class="dropdown-item">
+          <label>
+            <%= check_box_tag 'challenges[]', challenge.id %>
+            <%= challenge.title.capitalize %>
+          </label>
         </div>
+        <% end %>
       </div>
     </div>
-    <div class="row justify-content-md-center">
-      <div class="dropdown trainer-filtering">
-        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Location
-        </button>
-        <div class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
-          <% @locations.each do |location| %>
-            <div class="dropdown-item">
-              <label>
-                <%= check_box_tag 'locations[]', location %> <%= location.capitalize %>
-              </label>
-            </div>
-          <% end %>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="dropdown trainer-filtering">
+      <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Location
+      </button>
+      <div class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
+        <% @locations.each do |location| %>
+        <div class="dropdown-item">
+          <label>
+            <%= check_box_tag 'locations[]', location %>
+            <%= location.capitalize %>
+          </label>
         </div>
+        <% end %>
       </div>
     </div>
-    <div class="row justify-content-md-center">
-      <%= submit_tag 'Choose your trainer', class: 'btn btn-sm' %>
-    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <%= submit_tag 'Choose your trainer', class: 'btn btn-sm' %>
+  </div>
   <% end %>
 </div>
 
 <div id="trainers">
   <div class="container">
-    <div class="row justify-content-md-left">
-      <% @trainers.each do |trainer| %>
-        <div class="col-sm-4 col-xs-12">
-          <div class="card text-center" style="margin-bottom: 20px;">
-            <%= image_tag (trainer.avatar.present? ? trainer.avatar.url(:medium) : 'missing.png'), class: 'rounded-image' %>
-            <h6>
-              <span class="badge badge-pill badge-light">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-                <i class="fa fa-youtube-play" aria-hidden="true"></i>
-              </span>
-            </h6>
-            <div class="card-body">
-              <h4 class="card-title"><%= "#{trainer.first_name} #{trainer.last_name}".capitalize %></h4>
-              <p class="card-text">
-                <%= trainer.description %>
-              </p>
-              <%= render 'charges/new_payment', :trainer => trainer %>
-              <p class="card-foot">- <%= trainer.passion %> -</p>
+    <% @trainers.each do |trainer| %>
+    <div class="row justify-content-md-center">
+      <div class="col-sm-8">
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="row justify-content-md-center">
+                    <%= image_tag (trainer.avatar.present? ? trainer.avatar.url(:thumb) : 'missing.png'), class: 'rounded-image' %>
+                    <label align="center" class="amount">
+                      <span>Amount: $<%= params[:challenges].present? ? Challenge.where(id: params[:challenges]).map{|challenge| challenge.price}.compact.inject(:+) : 0 %>.00</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <h4 class="trainer-title">
+                    <%= "#{trainer.first_name} #{trainer.last_name}".capitalize %>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <div class="pull-right"><%= render 'charges/new_payment', :trainer => trainer %></div>
+                  </h4>
+                  <div class="row">
+                    <div class="col-md-5 inner-card">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-md-9">
+                          <div class="inner-card-main-text">Passion</div>
+                          <div class="inner-card-text">Passion</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-5 inner-card">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-md-9">
+                          <div class="inner-card-main-text">Challenges</div>
+                          <div class="inner-card-text"><%= trainer.teachers.size %></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="trainer-text">
+                    <%= trainer.description %>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      <% end %>
+      </div>
     </div>
+    <% end %>
   </div>
 </div>
 <script type="text/javascript">
-$(document).on('click', 'div .drop-menu', function (e) {
-  e.stopPropagation();
-});
+  $(document).on('click', 'div .drop-menu', function (e) {
+    e.stopPropagation();
+  });
 </script>
 <script type="text/javascript">
-  function Challenges(el){
-    var id = '#'+'passion__' + el.value;
+  function Challenges(el) {
+    var id = '#passion__' + el.value;
     $("#passionButton")[0].innerHTML = $(id).text();
     var passions = new Array();
-    $.each($('input[name="passions[]"]'), function(index, val){
-      if (val.checked){
+    $.each($('input[name="passions[]"]'), function (index, val) {
+      if (val.checked) {
         passions.push(val.value);
       }
     });
@@ -112,13 +151,12 @@ $(document).on('click', 'div .drop-menu', function (e) {
         passion_ids: passions
       },
       dataType: 'json',
-      success: function(data) {
+      success: function (data) {
         $("#challenges_drop")[0].innerHTML = "";
-        data.forEach(function(item) {
-          $("#challenges_drop")[0].innerHTML += '<div class="dropdown-item"><label><input type="checkbox" name="challenges[]" id="challenges_" value="'+item[0]+'">'+' '+item[1]+'</label></div>'
+        data.forEach(function (item) {
+          $("#challenges_drop")[0].innerHTML += '<div class="dropdown-item"><label><input type="checkbox" name="challenges[]" id="challenges_" value="' + item[0] + '"> ' + item[1] + '</label></div>'
         });
       }
     });
   };
-
 </script>
