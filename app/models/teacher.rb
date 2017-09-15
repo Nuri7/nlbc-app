@@ -10,8 +10,13 @@ class Teacher < ApplicationRecord
       teachers = trainers.where(challenge_id: params['challenges'])
       teachers.each do |trainer|
         potential_trainer = Teacher.where(user_id: trainer.user_id)
-        trainer_challenges = potential_trainer.map{|trainer| trainer.challenge_id.to_s}.compact.uniq
-        if params['challenges'].sort == trainer_challenges.sort
+        trainer_challenges = potential_trainer.map{|trainer| trainer.challenge_id.to_s}.compact.uniq.sort!
+        params['challenges'].sort!
+        if (trainer_challenges - params['challenges']).empty?
+          if params['challenges'] == trainer_challenges
+            selected_teachers << trainer.id
+          end
+        else
           selected_teachers << trainer.id
         end
       end
@@ -22,7 +27,7 @@ class Teacher < ApplicationRecord
       bootcamps = Bootcamp.where(location: params['locations']).map{|bo| bo.challenges.map(&:id).compact.uniq}.flatten
       trainers = trainers.where(challenge_id: bootcamps)
     end
-    
+
     trainers = User.where(id: trainers.collect(&:user_id).compact.uniq)
     trainers
   end
