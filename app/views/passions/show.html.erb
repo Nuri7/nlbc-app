@@ -5,15 +5,14 @@
       <div align="center" class="secondary-text">Learn AND Teach</div>
       <div align="center" class="main-text"><%= @passion.title.capitalize %></div>
       <div align="center">
-        <%= link_to "Sign up now!", new_user_registration_path, class: 'btn btn-primary' %>
-        <%= link_to "1:1 training", nlbc_trainers_path, class: 'btn btn-secondary' %>
+        <%= link_to "Follow Bootcamp", new_user_registration_path, class: 'btn btn-primary' %>
+        <%= link_to "1:1 training", nlbc_trainers_path, class: 'btn btn-primary' %>
       </div>
     </div>
   </div>
 </div>
 
 <div class="container">
-  <div align="center" class="challenges">Challenges</div>
   <p align="center" class="paragraph">A structured approach makes all the difference</p>
 </div>
 
@@ -27,7 +26,7 @@
             <h4 class="card-title">Challenge <%= challenge.number %></h4>
             <h6 class="card-subtitle"><%= challenge.title %></h6>
             <p class="card-text"><%= truncate challenge.description, length: 85 %></p>
-            <a href="<%= nlbc_trainers_path %>" class="btn btn-primary">1:1 training</a>
+            <a href="<%= nlbc_trainers_path %>" class="btn btn-primary">Download challenge</a>
           </div>
         </div>
       </div>

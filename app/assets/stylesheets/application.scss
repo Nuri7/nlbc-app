@@ -59,13 +59,13 @@ a:hover{
 }
 .button-configuration{
   border-radius: 0px;
-  padding: 15px 40px;
+  padding: 15px 30px;
   box-sizing: border-box;
   text-decoration: none;
   overflow: hidden;
   color: #fff;
   font-weight: 600;
-  border: none;
+  border: transparent;
   transition: color 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),background 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),border 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
   cursor: pointer;
 }
@@ -73,9 +73,11 @@ a:hover{
 a.btn-primary, input[type="submit"], button.btn-primary, button.stripe-button-el {
   @extend .button-configuration;
   background: #7302A1;
+  border: 1px solid #fff;
 }
 a.btn-primary:hover, input[type="submit"]:hover, button.btn-primary:hover{
   background: #390150;
+  border: 1px solid #fff;
 }
 // SECONDARY BUTTON
 a.btn-secondary {
