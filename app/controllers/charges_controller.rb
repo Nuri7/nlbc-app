@@ -10,8 +10,9 @@ class ChargesController < ApplicationController
     else
       begin
         challenges = Challenge.where(id: params["selected_challenges"].split(','))
-        # Amount in cents NOTE update from params!!!!!!!!!
+        # Amount in cents
         @show_amount = challenges.map{|challenge| challenge.price}.compact.inject(:+)
+        @show_amount ||= 0
         @amount = @show_amount * 100
         @challenges = challenges
 
