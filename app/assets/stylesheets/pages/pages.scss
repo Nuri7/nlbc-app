@@ -36,7 +36,7 @@ $main-color: #7302A1;
   overflow: hidden;
   top: 0px;
   left: 0px;
-  background: rgba(57, 1, 80, 0.2); /*can be anything, of course*/
+  background: rgba(57, 1, 80, 0.2);
 }
 .challenges{
   font-family: 'Lusitana', serif;
@@ -77,4 +77,13 @@ p.paragraph{
   font-size: 12px;
   line-height: 28px;
   color: $third-text;
+}
+#index-cover{
+  background-image: asset-url('passion_cover.jpg');
+  @extend #passion-cover;
+  background-position: top center;
+  margin-bottom: 0px;
+  .overlay{
+    background: rgba(57, 1, 80, 0.45);
+  }
 }
