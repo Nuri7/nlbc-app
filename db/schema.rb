@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170915155522) do
+ActiveRecord::Schema.define(version: 20170916140053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 20170915155522) do
   create_table "challenges", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "passion_id"
     t.integer  "number"
     t.string   "image_file_name"
@@ -85,6 +85,10 @@ ActiveRecord::Schema.define(version: 20170915155522) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "price"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
     t.index ["passion_id"], name: "index_challenges_on_passion_id", using: :btree
   end
 

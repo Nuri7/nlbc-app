@@ -76,7 +76,6 @@
                 <div class="col-md-3">
                   <div class="row justify-content-md-center">
                     <%= image_tag (trainer.avatar.present? ? trainer.avatar.url(:thumb) : 'missing.png'), class: 'rounded-image' %>
-                    
                   </div>
                 </div>
                 <div class="col-md-9">
@@ -87,7 +86,13 @@
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>
-                    <div class="pull-right"><%= render 'charges/new_payment', :trainer => trainer %></div>
+                    <div class="pull-right">
+                      <% if current_user %>
+                        <%= render 'charges/new_payment', :trainer => trainer %>
+                      <% else %>
+                        <button type="button" class="btn btn-primary" style="padding: 6px 8px; font-weight: 200; font-size: 15px;" data-toggle="modal" data-target="#signInModal">Book me</button>
+                      <% end %>
+                    </div>
                   </h4>
                   <div class="row">
                     <div class="col-md-5 inner-card">

@@ -1,0 +1,37 @@
+Hello, I'm Peter, professional Ruby on Rails developer.
+I have excellent experience with building APIs and 3rd party API integration such as Stripe, Paypal, Sendgrid, AWS S3, Facebook etc..
+Also I am very strong at Pixel Perfect responsive web design using Twitter Bootstrap, HTML5, CSS3, JavaScript, jQuery etc for front end.
+I can assure You that my work will be done in time and it will meet the given requirements.
+
+While I am a certain there will be others who underbid me on this project, I can assure you several things: 
+- I can start working immediately
+- I work extremely fast 
+- I am an excellent English speaker. This means I can ensure quality communication in regards to the project.
+- All code is clean, understandable for other developers and hand written
+- I'm comfortable to communicate via Skype calls also
+
+Check my skills:
+
+- Ruby on Rails 
+- SQLite, Postgresql, MySQL for database. 
+- ActiveRecord, Sequel
+- Pixel perfect responsive web design(Twitter Bootstrap, HTML5, CSS3) 
+- JavaScript, Ajax, jQuery, Geo-location
+- (Github, Bitbucket, GitLab) Git for version management.
+- AWS, Heroku for deploying ROR project
+- 3rd party API integration for Social Media APP such as Facebook, Youtube, LinkedIn
+and many more ..
+
+On the other hand, I am a reliable person and honest developer. 
+You can contact me at any time even if we are in different timezone.
+
+As you can see above my skills and references, I have all required skills for you and your project.
+I am sure, I can build your project successfully and will look forward to hear from you soon. 
+Do not hesitate to ask me anything. 
+
+My ruby gem:
+https://rubygems.org/gems/simple_client_validation
+
+Thanks for your time to read my application. 
+Best regards,
+Petar

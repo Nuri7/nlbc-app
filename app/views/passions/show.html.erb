@@ -26,7 +26,11 @@
             <h4 class="card-title">Challenge <%= challenge.number %></h4>
             <h6 class="card-subtitle"><%= challenge.title %></h6>
             <p class="card-text"><%= truncate challenge.description, length: 85 %></p>
-            <a href="<%= nlbc_trainers_path %>" class="btn btn-primary">Download challenge</a>
+            <% if can_download?(challenge.id) %>
+              <%= link_to 'Download challenge', challenge.document.url, download: '', class:'btn btn-primary' %>
+            <% else %>
+              <button type="button" name="button" class="btn" disabled>Download challenge</button>
+            <% end %>
           </div>
         </div>
       </div>

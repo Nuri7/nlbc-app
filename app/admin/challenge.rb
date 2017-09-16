@@ -4,7 +4,7 @@ ActiveAdmin.register Challenge do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 before_action :left_sidebar!, only: [:index]
-permit_params :title, :description, :passion_id, :number, :image, :price
+permit_params :title, :description, :passion_id, :number, :image, :price, :document
 #
 # or
 #
@@ -22,6 +22,7 @@ form do |f|
     f.input :number, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
     f.input :passion, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
     f.input :image, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
+    f.input :document, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
   end
   f.submit
 end
@@ -35,6 +36,9 @@ show do
     row :passion
     row :image do |challenge|
       image_tag (challenge.image.present? ? challenge.image.url(:thumb) : 'missing.png'), height: 110
+    end
+    row :document do |challenge|
+      link_to 'Download', challenge.document.url, download: ''
     end
   end
   active_admin_comments
