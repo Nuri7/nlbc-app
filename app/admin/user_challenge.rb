@@ -18,7 +18,7 @@ form do |f|
   f.semantic_errors
   f.inputs do
     f.input :user_id, :as => :select, :collection => User.all.map{|u| ["#{u.email} - #{u.last_name}, #{u.first_name}", u.id]}
-    f.input :challenge, :as => :select, :collection => Challenge.all.map{|u| ["#{u.title} - Passion: #{u.passion.title}", u.id]}
+    f.input :challenge, :as => :select, :collection => Challenge.order(:title).map{|u| ["#{u.title} - Passion: #{u.passion.title}", u.id]}
     f.input :times
   end
   f.submit
