@@ -9,13 +9,21 @@ $orange: #ef9929;
 $light-green: #c3bb35;
 $green: #6b8c51;
 #trainer-filters{
-  margin-bottom: 100px;
-
+  width: 100%;
+  border: 1px solid #F2F2F2;
+  height: 50px;
+  .row{
+    margin: 0px;
+  }
+  label{
+    width: 100%;
+  }
   input[type="submit"]{
     padding: 0.3rem 2rem;
     font-size: 0.875rem;
     line-height: 1.5;
-    width: 350px;
+    height: 50px;
+    border: 1px solid #F2F2F2;
   }
   .btn{
     border-radius: 0px;
@@ -25,8 +33,8 @@ $green: #6b8c51;
     margin-left: -20px;
   }
   button[type="button"]{
-    margin-bottom: 20px;
-    width: 350px;
+    border: 1px solid #F2F2F2;
+    height: 50px;
   }
   .dropdown-menu{
     width: 350px;
@@ -89,5 +97,29 @@ $green: #6b8c51;
     box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.25);
     padding-left: 25px;
     padding-right: 25px;
+  }
+}
+.selected-filters{
+  margin-bottom: 100px;
+  width: 100%;
+  border: 1px solid #F2F2F2;
+  height: 50px;
+  .badge{
+    height: 40px;
+    padding: 15px;
+    margin-top: 4px;
+  }
+  .badge-theme{
+    transition: color 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),background 0.7s cubic-bezier(0.215, 0.61, 0.355, 1),border 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+    background: $main-color;
+    a{
+      color: white;
+    }
+    a:hover{
+      text-decoration: none;
+    }
+  }
+  .badge-theme:hover{
+    background: #390150;
   }
 }

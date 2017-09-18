@@ -13,6 +13,8 @@ class NlbcController < ApplicationController
     if (params[:passions] || params[:challenges] || params[:locations]).present?
       @trainers = Teacher.search_trainers(params)
       @selected_challenges = params[:challenges].join(',') unless params[:challenges].nil?
+      @challenges_names = Challenge.where(id: params[:challenges]).collect{|ch| [ch.id, ch.title]}
+      
     else
       @trainers = User.where(id: Teacher.all.map(&:user_id))
     end
