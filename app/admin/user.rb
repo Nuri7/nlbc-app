@@ -4,7 +4,7 @@ ActiveAdmin.register User do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
   permit_params :email, :first_name, :last_name, :male, :provider, :role,
-                :password, :password_confirmation, :description, :passion
+                :password, :password_confirmation, :description, :passion, :city
 #
 # or
 #
@@ -22,6 +22,7 @@ ActiveAdmin.register User do
       f.input :password_confirmation, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
       f.input :first_name, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
       f.input :last_name, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
+      f.input :city, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
       f.input :male, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
       f.input :role, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
       f.input :description, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
@@ -36,6 +37,7 @@ ActiveAdmin.register User do
     column :email
     column :first_name
     column :last_name
+    column :city
     column "Gender Male ?", :male do |user|
       user.male
     end
@@ -58,6 +60,7 @@ ActiveAdmin.register User do
       row :email
       row :first_name
       row :last_name
+      row :city
       row "Gender Male ?", :male do |user|
         user.male
       end

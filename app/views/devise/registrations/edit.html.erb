@@ -20,6 +20,10 @@
             <label>Last name:</label>
             <p><%= @user.last_name.present? ? @user.last_name : "Not provided" %></p>
           </div>
+          <div class="form-group">
+            <label>City:</label>
+            <p><%= @user.city.present? ? @user.city : "Not provided" %></p>
+          </div>
           <% if is_teacher?(@user) %>
             <div class="form-group">
               <label>Teacher Description:</label>
@@ -59,6 +63,10 @@
             <div class="form-group">
               <%= f.label :last_name, "LAST NAME" %>
               <%= f.text_field :last_name, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :city, "CITY" %>
+              <%= f.text_field :city, class: 'form-control' %>
             </div>
             <div class="form-group">
               <%= f.label :male, 'GENDER' %>
