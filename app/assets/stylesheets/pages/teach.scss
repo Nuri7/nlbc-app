@@ -15,11 +15,29 @@ $green: #6b8c51;
     margin-bottom: 20px;
     height: 120px;
     box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.1);
-    transition: 0.2s ease-in-out;
-    -webkit-transition: 0.2s ease-in-out;
+    display: flex;
   }
-  .card:hover{
-    transform: scale(1.05);
+  /* Pop */
+  @keyframes pop {
+  	50% {
+  		transform: scale(1.1);
+  	}
+
+  	100% {
+  		transform: scale(1);
+  	}
+  }
+
+  .pop {
+  	display: inline-block;
+
+
+  	&:hover {
+  		animation-name: pop;
+  		animation-duration: .3s;
+  		animation-timing-function: linear;
+  		animation-iteration-count: 1;
+  	}
   }
   .card-body{
     padding: 0px;
