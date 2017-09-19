@@ -42,14 +42,14 @@
 
     <div class="">
       <div class="dropdown trainer-filtering">
-        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button id="locationButton" class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Location
         </button>
         <div class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
           <% @locations.each do |location| %>
           <div class="dropdown-item">
-            <label>
-              <%= radio_button_tag('locations[]', passion.id, false)%>
+            <label id="location__<%=location%>">
+              <%= radio_button_tag('locations[]', location, false, onClick: "Locations(this);")%>
               <%= location.capitalize %>
             </label>
           </div>
@@ -185,5 +185,10 @@
         });
       }
     });
+  };
+
+  function Locations(el) {
+    var id = '#location__' + el.value;
+    $("#locationButton")[0].innerHTML = $(id).text();
   };
 </script>

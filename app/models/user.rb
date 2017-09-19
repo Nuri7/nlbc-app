@@ -51,4 +51,8 @@ class User < ApplicationRecord
     self.role.downcase! if self.role
   end
 
+  def self.search_by_city(params)
+    where(city: params['locations'])
+  end
+
 end

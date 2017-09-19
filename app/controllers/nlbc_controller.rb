@@ -9,12 +9,12 @@ class NlbcController < ApplicationController
     @selected_challenges = nil
     @challenges = Challenge.all
     @passions = Passion.all
-    @locations = Bootcamp.all.collect{|bootcamp| bootcamp.location unless bootcamp.location.empty? }.uniq.compact
+    @locations = User.where(id: Teacher.all.collect(&:user_id).uniq.compact).collect(&:city).uniq.compact
     if (params[:passions] || params[:challenges] || params[:locations]).present?
       @trainers = Teacher.search_trainers(params)
+      @trainers = @trainers.search_by_city(params) if params[:locations].present?
       @selected_challenges = params[:challenges].join(',') unless params[:challenges].nil?
       @challenges_names = Challenge.where(id: params[:challenges]).collect{|ch| [ch.id, ch.title]}
-      
     else
       @trainers = User.where(id: Teacher.all.map(&:user_id))
     end

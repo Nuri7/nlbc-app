@@ -23,11 +23,6 @@ class Teacher < ApplicationRecord
       trainers = trainers.where(id: selected_teachers)
     end
 
-    if params['locations'].present?
-      bootcamps = Bootcamp.where(location: params['locations']).map{|bo| bo.challenges.map(&:id).compact.uniq}.flatten
-      trainers = trainers.where(challenge_id: bootcamps)
-    end
-
     trainers = User.where(id: trainers.collect(&:user_id).compact.uniq)
     trainers
   end
