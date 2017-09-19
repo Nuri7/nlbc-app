@@ -1,0 +1,100 @@
+// text colors
+$first-text: #111111;
+$second-text: #656565;
+$third-text: #959595;
+// ui colors
+$main-color: #7302A1;
+$light-purple: #9f3d89;
+$orange: #ef9929;
+$light-green: #c3bb35;
+$green: #6b8c51;
+#teach-cards{
+  .card{
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    height: 120px;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+  }
+  .card:hover{
+    transform: scale(1.05);
+  }
+  .card-body{
+    padding: 0px;
+  }
+  .title{
+    font-size: 18px;
+    line-height: 20px;
+    color: $third-text;
+  }
+  .text{
+    font-size: 12px;
+    line-height: 13px;
+    color: $third-text;
+    margin-top: 5px;
+  }
+  h1{
+    letter-spacing: 1.1px;
+  }
+  .money-card{
+    background: #5E54A3;
+    height: 120px;
+  }
+  .work-card{
+    background: #E31F1F;
+    height: 120px;
+  }
+  .time-card{
+    background: #DDCF3F;
+    height: 120px;
+  }
+  .flexibility-card{
+    background: #62ACA5;
+    height: 120px;
+  }
+  .international-card{
+    background: #B61884;
+    height: 120px;
+  }
+  .guy-card{
+    background: #A646A0;
+    height: 120px;
+  }
+  svg{
+    margin-left: 30px;
+    margin-top: 24px;
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+  }
+  .faq{
+    margin: 45px 0;
+    font-size: 30px;
+    line-height: 33px;
+    color: $second-text;
+    font-weight: 200;
+  }
+  .toggle-button{
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 33px;
+    color: #808080;
+    font-weight: 200;
+  }
+  .toggle-button:focus{
+    outline:none;
+  }
+  .toggle-text{
+    font-size: 14px;
+    line-height: 23px;
+    color: #808080;
+    letter-spacing: 1.1px;
+    padding: 20px 20px 20px 10px;
+    font-weight: 200;
+  }
+}

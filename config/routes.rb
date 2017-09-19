@@ -12,13 +12,9 @@ Rails.application.routes.draw do
   namespace :nlbc do
     get :dropdown_challenges
     get :privacy
-    get :programming
-    get :dancing
-    get :photography
-    get :boxing
-    get :qajava
     get :trainers
     get :remove_users
+    get :teach
     post :subscribe_to_passion
     delete :delete_user
   end
