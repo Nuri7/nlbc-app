@@ -8,6 +8,9 @@ class NlbcController < ApplicationController
   def teach
   end
 
+  def enterprise
+  end
+
   def trainers
     @selected_challenges = nil
     @challenges = Challenge.all

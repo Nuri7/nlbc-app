@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get :trainers
     get :remove_users
     get :teach
+    get :enterprise
     post :subscribe_to_passion
     delete :delete_user
   end

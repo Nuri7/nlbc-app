@@ -1,0 +1,56 @@
+$second-text: #656565;
+#logos{
+  background: white;
+  padding: 40px;
+  .logo-image{
+    filter: grayscale(100%);
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    height: 80px;
+    max-width: 200px;
+  }
+  .logo-image:hover{
+    filter: grayscale(0%);
+  }
+}
+#table-comparison{
+  margin-top: 100px;
+  td{
+    text-align: center;
+  }
+  th{
+    margin: 45px 0;
+    font-size: 30px;
+    line-height: 33px;
+    color: $second-text;
+    font-weight: 200;
+    text-align: center;
+  }
+}
+#get-in-touch{
+  .title{
+    margin: 45px 0;
+    font-size: 30px;
+    line-height: 33px;
+    color: $second-text;
+    font-weight: 200;
+    text-align: center;
+  }
+  .subtitle{
+    margin: 20px 15px;
+    font-size: 21px;
+    line-height: 35px;
+    color: #656565;
+    font-weight: 200;
+  }
+  label{
+    font-size: 10px;
+    line-height: 17px;
+    color: $second-text;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  select{
+    width: 100%;
+  }
+}
