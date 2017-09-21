@@ -96,46 +96,40 @@
       <div class="card">
         <div class="subtitle">* Required field</div>
         <div class="card-body">
-          <form>
+          <%= form_for @contact, :url => url_for(controller: ContactsController.controller_name, action: 'create') do |f| %>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label class="col-form-label">FIRST NAME *</label>
-                <input type="text" class="form-control" placeholder="Jane">
+                <%= f.text_field :first_name, class: 'form-control', placeholder: 'Jane', :required => true %>
               </div>
               <div class="form-group col-md-6">
                 <label class="col-form-label">LAST NAME *</label>
-                <input type="text" class="form-control" placeholder="Smith">
+                <%= f.text_field :last_name, class: 'form-control', placeholder: 'Smith', :required => true %>
               </div>
             </div>
             <div class="form-group">
               <label class="col-form-label">WORK EMAIL *</label>
-              <input type="email" class="form-control" placeholder="Jane@company.com">
+              <%= f.text_field :email, class: 'form-control', placeholder: 'Jane@company.com', :required => true %>
             </div>
             <div class="form-group">
               <label class="col-form-label">WORK PHONE *</label>
-              <input type="text" class="form-control" placeholder="+1 234 567 890">
+              <%= f.text_field :work_phone, class: 'form-control', placeholder: '+1 234 567 890', :required => true %>
             </div>
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label class="col-form-label">ORGANIZATION NAME *</label>
-                <input type="text" class="form-control" placeholder="Company">
+                <%= f.text_field :organization_name, class: 'form-control', placeholder: 'Company', :required => true %>
               </div>
               <div class="form-group col-md-4">
                 <label class="col-form-label">employees interested  *</label>
-                <select class="custom-select">
-                  <option selected></option>
-                  <option value="1-10" selected>1-9</option>
-                  <option value="10-99">10-99</option>
-                  <option value="100+">100+</option>
-                </select>
-              </div>
+                <%= f.select :employees_number, ["1-10","10-99","100+"], { include_blank: true }, class:"form-control", :required => true %>
             </div>
             <div class="form-group">
               <label class="col-form-label">Comments/Questions</label>
-              <textarea class="form-control" rows="4" cols="80" placeholder="What your organization's needs and goals? How can we help you?"></textarea>
+              <%= f.text_area :comments, class: 'form-control', placeholder: "What your organization's needs and goals? How can we help you?", rows: 4, cols: 90 %>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+            <button type="submit" name="button" class="btn btn-primary">Submit</button>
+          <% end %>
         </div>
       </div>
     </div>

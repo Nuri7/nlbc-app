@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170918163823) do
+ActiveRecord::Schema.define(version: 20170921135147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,18 @@ ActiveRecord::Schema.define(version: 20170918163823) do
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
     t.index ["passion_id"], name: "index_challenges_on_passion_id", using: :btree
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "work_phone"
+    t.string   "organization_name"
+    t.string   "employees_number"
+    t.text     "comments"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "feedbacks", force: :cascade do |t|

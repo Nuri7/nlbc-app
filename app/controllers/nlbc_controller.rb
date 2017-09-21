@@ -9,6 +9,7 @@ class NlbcController < ApplicationController
   end
 
   def enterprise
+    @contact = Contact.new
   end
 
   def trainers

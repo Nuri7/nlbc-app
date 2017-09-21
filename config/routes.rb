@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'nlbc#index'
   resources :passions
   resources :feedbacks
+  resources :contacts, only: :create
 
   # for stripe
   resources :charges
