@@ -1,4 +1,32 @@
+// text colors
+$first-text: #111111;
 $second-text: #656565;
+$third-text: #959595;
+// ui colors
+$main-color: #7302A1;
+$light-purple: #9f3d89;
+$orange: #ef9929;
+$light-green: #c3bb35;
+$green: #6b8c51;
+#enterprise-cover{
+  .enterprise-text{
+    font-size: 68px;
+    line-height: 80px;
+    color: white;
+    text-shadow: none;
+    font-weight: bold;
+    margin: 30px 0;
+    letter-spacing: 3px;
+  }
+  .enterprise-second{
+    font-size: 21px;
+    line-height: 23px;
+    color: white;
+    font-weight: 200;
+    margin: 30px 0;
+    letter-spacing: 3px;
+  }
+}
 #logos{
   background: white;
   padding: 40px;
@@ -25,6 +53,12 @@ $second-text: #656565;
     color: $second-text;
     font-weight: 200;
     text-align: center;
+  }
+  .fa-check{
+    color: $green;
+  }
+  .fa-times{
+    color: $light-purple;
   }
 }
 #get-in-touch{

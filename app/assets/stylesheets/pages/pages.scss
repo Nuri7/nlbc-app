@@ -87,3 +87,14 @@ p.paragraph{
     background: rgba(57, 1, 80, 0.45);
   }
 }
+#enterprise-cover{
+  background-image: asset-url('programming.jpg');
+  @extend #passion-cover;
+  background-position: center center;
+  margin-bottom: 0px;
+  height: 75vh;
+  .overlay{
+    background: rgba(0, 0, 0, 0.4);
+    height: 75vh;
+  }
+}
