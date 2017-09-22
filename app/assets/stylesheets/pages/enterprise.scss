@@ -87,4 +87,13 @@ $green: #6b8c51;
   select{
     width: 100%;
   }
+  .input-group-addon{
+    background: white;
+    border-right: none;
+  }
+  .input-group{
+    input{
+      border-left: none;
+    }
+  }
 }

@@ -10,45 +10,50 @@
 </div>
 
 <div id="cover-stripe">
-  <div class="container d-flex h-100">
-    <div class="align-self-center">
-      <div class="row justify-content-sm-center">
-        <div align="center" class="stripe-title">Practise can be boring, but not if you do it efficiently and with passionate people.</div>
-      </div>
-      <div class="row">
-        <div class="col" style="margin: 6px;">
-          <div class="row justify-content-sm-center">
-            <p>Our Bootcamps are the absolute fastest and fun way to learn.
-               We make sure the multiple challenges that you do will be stored to
-               your brain efficiently and that you engage with your fellow bootcampers.</p>
-            <%= link_to 'Find private teachers', nlbc_trainers_path, class:"btn btn-primary" %>
-          </div>
+  <div class="row">
+    <div class="col first-quote">
+      <div class="container d-flex h-100">
+        <div class="align-self-center">
+          <div class="stripe-title">Get ready for intensity</div>
+          <p> Our Bootcamps are the most effective and fun way to learn.
+            We make sure the multiple challenges that you do will be stored
+            to your brain efficiently and that you engage with your
+            fellow bootcampers.</p>
+          <%= link_to 'Follow Bootcamp', "#", class:"btn btn-primary left-button" %>
         </div>
-        <div class="col" style="margin: 6px;">
-          <div class="row justify-content-sm-center">
-            <p>For some this is the best way to learn, because of the 1:1
-              individual attention. Out trainers are either experts in their field or
-              just a passionate person like you teaching what they have just learned.</p>
-            <%= link_to 'Follow Bootcamp', "#", class:"btn btn-primary" %>
-          </div>
-        </div>
-        <div class="col" style="margin: 6px;">
-          <div class="row justify-content-sm-center">
-            <p>There are 2 ways to become a trainer. Either you are already
-              knowledgable in your field and you can fill in the form and become
-              an instant trainer or you follow a challenge 3 times which automatically
-              gives you the option to become available as a trainer. </p>
-            <%= link_to 'Become a Trainer', "#", class:"btn btn-primary" %>
-          </div>
-        </div>
-      </div>
-      <div class="row justify-content-sm-center">
-        <div align="center" class="stripe-footer">
-          By signing up to our platform and following any of
-          these options, you become a passionist which comes with all
-          passionista privileges!</div>
       </div>
     </div>
-
+    <div class="col image-col intensity"></div>
   </div>
+
+  <div class="row">
+    <div class="col image-col expertise"></div>
+    <div class="col second-quote">
+      <div class="container d-flex h-100">
+        <div class="align-self-center">
+          <div class="stripe-title">If you like individual attention or expertise</div>
+          <p> For some this is the best way to learn, because of the 1:1 individual attention.
+            Out trainers are either experts in their field or just a
+            passionate person like you teaching what they have just learned.</p>
+          <%= link_to 'Find a Trainer', nlbc_trainers_path, class:"btn btn-primary left-button" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col third-quote">
+      <div class="container d-flex h-100">
+        <div class="align-self-center">
+          <div class="stripe-title">If you love what you do and you want to do more of it</div>
+          <p> Either you are already knowledgable in your field and you can
+            become it. Follow a challenge 3 times which automatically
+            gives you the option to become available as a trainer.</p>
+          <%= link_to 'Become a Trainer', "#", class:"btn btn-primary left-button" %>
+        </div>
+      </div>
+    </div>
+    <div class="col image-col trainer"></div>
+  </div>
+
 </div>

@@ -42,8 +42,6 @@ nav a {
   }
 }
 #cover-stripe{
-  height: 500px;
-  background: $main-color;
   color: #fff;
   letter-spacing: 1.1px;
   .content{
@@ -51,7 +49,7 @@ nav a {
   }
   .stripe-title{
     font-size: 25px;
-    line-height: 20px;
+    line-height: 40px;
     color: white;
     margin: 40px;
   }
@@ -62,8 +60,7 @@ nav a {
   }
   p{
     font-weight: 200;
-    height: 150px;
-    text-align: center;
+    margin-left: 40px;
   }
   a.btn-primary {
     box-sizing: border-box;
@@ -77,5 +74,39 @@ nav a {
   }
   a.btn-primary:hover{
     background: rgba(0, 0, 0, 0.5);
+  }
+  .first-quote{
+    height: 400px;
+    background: $green;
+  }
+  .second-quote{
+    height: 400px;
+    background: $light-purple;
+  }
+  .third-quote{
+    height: 400px;
+    background: $light-green;
+  }
+  .col{
+    margin: 15px;
+  }
+  .image-col{
+    background: white;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 400px;
+  }
+  .intensity{
+    background-image: asset-url('intensity.jpg');
+  }
+  .expertise{
+    background-image: asset-url('mind.png');
+  }
+  .trainer{
+    background-size: cover;
+    background-image: asset-url('home.jpg');
+  }
+  .left-button{
+    margin-left: 40px;
   }
 }

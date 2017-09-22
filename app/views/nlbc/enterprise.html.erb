@@ -109,16 +109,25 @@
             </div>
             <div class="form-group">
               <label class="col-form-label">WORK EMAIL *</label>
-              <%= f.text_field :email, class: 'form-control', placeholder: 'Jane@company.com', :required => true %>
+              <div class="input-group mb-2 mb-sm-0">
+                <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                <%= f.text_field :email, class: 'form-control', placeholder: 'Jane@company.com', :required => true %>
+              </div>
             </div>
             <div class="form-group">
               <label class="col-form-label">WORK PHONE *</label>
-              <%= f.text_field :work_phone, class: 'form-control', placeholder: '+1 234 567 890', :required => true %>
+              <div class="input-group mb-2 mb-sm-0">
+                <div class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                <%= f.text_field :work_phone, class: 'form-control', placeholder: '+1 234 567 890', :required => true %>
+              </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label class="col-form-label">ORGANIZATION NAME *</label>
-                <%= f.text_field :organization_name, class: 'form-control', placeholder: 'Company', :required => true %>
+                <div class="input-group mb-2 mb-sm-0">
+                  <div class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></div>
+                  <%= f.text_field :organization_name, class: 'form-control', placeholder: 'Company', :required => true %>
+                </div>
               </div>
               <div class="form-group col-md-4">
                 <label class="col-form-label">employees interested  *</label>
