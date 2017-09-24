@@ -110,3 +110,30 @@ nav a {
     margin-left: 40px;
   }
 }
+#vision-page{
+  @extend #cover-stripe;
+  .fourth-quote{
+    height: 400px;
+    background: $main-color;
+  }
+  .fifth-quote{
+    height: 400px;
+    background: $orange;
+  }
+  .first-image{
+    background-size: cover;
+    background-image: asset-url('vision/link.jpeg');
+  }
+  .second-image{
+    background-image: asset-url('vision/passion_12.jpg');
+  }
+  .third-image{
+    background-image: asset-url('vision/freedom.png');
+  }
+  .fourth-image{
+    background-image: asset-url('vision/puzzle.jpg');
+  }
+  .fifth-image{
+    background-image: asset-url('vision/happy.jpg');
+  }
+}

@@ -8,6 +8,9 @@ class NlbcController < ApplicationController
   def teach
   end
 
+  def vision
+  end
+
   def enterprise
     @contact = Contact.new
   end

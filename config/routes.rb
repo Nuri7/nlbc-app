@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: 'registrations' }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: 'registrations', sessions: 'sessions' }
   root 'nlbc#index'
   resources :passions
   resources :feedbacks
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get :remove_users
     get :teach
     get :enterprise
+    get :vision
     post :subscribe_to_passion
     delete :delete_user
   end
