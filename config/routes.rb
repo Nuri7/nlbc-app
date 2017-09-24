@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :passions
   resources :feedbacks
   resources :contacts, only: :create
+  namespace :teachers do
+    get :teacher_information
+  end
 
   # for stripe
   resources :charges

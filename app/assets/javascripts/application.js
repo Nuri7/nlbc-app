@@ -24,9 +24,3 @@ $(document).ready(function() {
   /* Activating Best In Place */
   jQuery(".best_in_place").best_in_place();
 });
-
-$(function() {
-  $(".preload").fadeOut(2000, function() {
-      $(".main-content").fadeIn(1000);
-  });
-});

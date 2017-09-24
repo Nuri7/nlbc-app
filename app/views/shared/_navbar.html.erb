@@ -45,6 +45,9 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <%= link_to 'My Profile', edit_user_registration_path, class: 'dropdown-item' %>
+                <% if is_teacher?(current_user) %>
+                  <%= link_to 'Teacher profile', teachers_teacher_information_path, class: 'dropdown-item' %>
+                <% end %>
                 <% if current_user.role == 'admin' %>
                   <%= link_to 'Feedbacks', feedbacks_path, class: 'dropdown-item' %>
                   <%= link_to 'Team generator', new_team_path, class: 'dropdown-item' %>

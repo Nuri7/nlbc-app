@@ -1,0 +1,14 @@
+<% if show_loader? %>
+  <div class="preload"></div>
+  <script type="text/javascript">
+  $(function() {
+    $(".preload").fadeOut(2000, function() {
+        $(".main-content").fadeIn(500);
+    });
+  });
+  </script>
+<% else %>
+  <style media="screen">
+    .main-content {display: block;}
+  </style>
+<% end %>
