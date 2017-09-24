@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   namespace :nlbc do
     get :dropdown_challenges
     get :privacy
-    get :trainers
+    get :find_a_trainer
     get :remove_users
     get :teach
     get :enterprise

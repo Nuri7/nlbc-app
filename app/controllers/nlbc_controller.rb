@@ -12,7 +12,7 @@ class NlbcController < ApplicationController
     @contact = Contact.new
   end
 
-  def trainers
+  def find_a_trainer
     @selected_challenges = nil
     @challenges = Challenge.all
     @passions = Passion.all
