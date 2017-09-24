@@ -36,14 +36,11 @@ html,body{
   background: #F8F8F8;
   margin: 0px;
   padding: 0px;
-  height: 100%;
   width: 100%;
-  min-height:100%;
   -ms-text-size-adjust:100%;
   -webkit-text-size-adjust:100%;
   // -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow-y: scroll;
   overflow-x: hidden;
 }
 body{
@@ -127,9 +124,14 @@ a.btn-green:hover, button.btn-green:hover{
 }
 
 .alert-info{
-  background-color: rgba($main-color, 0.4);
+  background-color: rgba($main-color, 0.8);
   border-color: transparent;
   color: white;
+}
+.alert{
+  position: absolute;
+  z-index: 9999;
+  width: 80%;
 }
 button.stripe-button-el, .stripe-button-el span{
   display: none;

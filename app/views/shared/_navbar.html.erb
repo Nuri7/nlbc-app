@@ -1,4 +1,4 @@
-<nav id="main-nav" class="navbar navbar-expand-md navbar-light">
+<nav id="main-nav" class="navbar fixed-top navbar-expand-md navbar-light">
   <div class="container">
     <a class="navbar-brand" href="<%= root_path %>">
       <%= image_tag 'logo.png' %>
@@ -30,13 +30,13 @@
             </li>
           <% end %>
           <li class="nav-item">
-            <a class="nav-link" href="<%= nlbc_trainers_path %>">Trainers</a>
+            <a class="nav-link underline" href="<%= nlbc_trainers_path %>">Trainers <span class="underline"></span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%= nlbc_teach_path %>">Teach</a>
+            <a class="nav-link underline" href="<%= nlbc_teach_path %>">Teach</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%= nlbc_enterprise_path %>">Enterprise</a>
+            <a class="nav-link underline" href="<%= nlbc_enterprise_path %>">Enterprise</a>
           </li>
           <% if current_user %>
             <li class="nav-item dropdown">

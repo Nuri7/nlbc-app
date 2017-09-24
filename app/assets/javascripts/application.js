@@ -24,3 +24,11 @@ $(document).ready(function() {
   /* Activating Best In Place */
   jQuery(".best_in_place").best_in_place();
 });
+
+$(window).scroll(function() {
+  if ($(document).scrollTop() > 100) {
+    $('#main-nav').addClass('color-change');
+  } else {
+    $('#main-nav').removeClass('color-change');
+  }
+});

@@ -1,25 +1,101 @@
 $main-color: #7302A1;
 #main-nav{
-  background: white;
-  height: 60px;
+  border: 0px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  background-color: transparent;
+  .navbar{
+    height: 80px;
+  }
   img{
     display: block;
     margin: 0 auto;
   }
   a{
     display: block;
-    font-size: 13px;
-    line-height: 28px;
-    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 200;
     letter-spacing: 0.01rem;
     text-decoration: none;
-    text-transform: uppercase;
-    color: #656565;
+    text-transform: capitalize;
+    color: gray;
   }
   a:hover{
-    color: $main-color;
+    color: darken($main-color, 10%);
+  }
+  a.underline {
+    display: block;
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 200;
+    letter-spacing: 0.01rem;
+    text-decoration: none;
+    text-transform: capitalize;
+
+    text-decoration: none;
+    color: gray;
+    transition: .3s all linear;
+    position: relative;
+    &:before, &:after {
+      content: "";
+      height: 3px;
+      width: 0%;
+      background: $main-color;
+      position: absolute;
+      bottom: 0;
+      transition: .2s all linear;
+    }
+    &:before {
+      left: 50%;
+    }
+    &:after {
+      right: 50%;
+    }
+
+    &:hover {
+      color: $main-color;
+      &:before, &:after {
+        width: 100%;
+      }
+       &:before {
+        left: 0%;
+      }
+      &:after {
+        right: 0%;
+      }
+    }
+    &:active, &:focus {
+      color: darken($main-color, 10%);
+      &:before, &:after {
+        background: darken($main-color, 10%);
+      }
+    }
+  }
+  .dropdown-menu{
+    a:hover{
+      background: rgba($main-color, 0.5);
+    }
   }
 }
+@media screen and (min-width: 768px){
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+   }
+}
+.margin-top-70{
+  margin-top: 70px;
+}
+.color-change {
+  background-color: white !important;
+  color: $main-color;
+  margin-top: -10px;
+  a{
+    color: $main-color !important;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .navbar-toggler[aria-expanded="false"]{
     z-index: 100;
