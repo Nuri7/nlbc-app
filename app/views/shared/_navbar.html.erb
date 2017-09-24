@@ -19,7 +19,7 @@
         <ul class="navbar-nav mr-auto">
           <% all_categories.each do |category| %>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="Javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle <%= white_link? ? 'white-link' : '' %>" href="Javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= category.name.titleize %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -30,17 +30,17 @@
             </li>
           <% end %>
           <li class="nav-item">
-            <a class="nav-link underline" href="<%= nlbc_find_a_trainer_path %>">Find a Trainer <span class="underline"></span></a>
+            <a class="nav-link underline <%= white_link? ? 'white-link' : '' %>" href="<%= nlbc_find_a_trainer_path %>">Find a Trainer <span class="underline"></span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link underline" href="<%= nlbc_teach_path %>">Teach</a>
+            <a class="nav-link underline <%= white_link? ? 'white-link' : '' %>" href="<%= nlbc_teach_path %>">Teach</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link underline" href="<%= nlbc_enterprise_path %>">Enterprise</a>
+            <a class="nav-link underline <%= white_link? ? 'white-link' : '' %>" href="<%= nlbc_enterprise_path %>">Enterprise</a>
           </li>
           <% if current_user %>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="Javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle <%= white_link? ? 'white-link' : '' %>" href="Javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Account
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
