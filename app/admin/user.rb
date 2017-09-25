@@ -26,7 +26,7 @@ ActiveAdmin.register User do
       f.input :male, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
       f.input :role, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
       f.input :description, :wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
-      f.input :passion, as: :select, :collection => Passion.all.map{|passion| passion.title.capitalize},:wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
+      f.input :passion, as: :select, :collection => Passion.all.map{|passion| passion.title},:wrapper_html => { class: 'form-group' }, :input_html => { class: 'form-control' }
     end
     f.submit
   end

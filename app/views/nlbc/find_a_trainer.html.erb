@@ -11,7 +11,7 @@
           <div class="dropdown-item">
             <label id="passion__<%=passion.id%>">
               <%= radio_button_tag('passions[]', passion.id, false, onClick: "Challenges(this);")%>
-              <%= passion.title.capitalize %>
+              <%= passion.title %>
             </label>
           </div>
           <% end %>
@@ -31,7 +31,7 @@
               <label>
                 <%= check_box_tag 'challenges[]', challenge.id %>
                 <span class="cr"><i aria-hidden="true" class="cr-icon fa fa-check"></i></span>
-                <%= challenge.title.capitalize %>
+                <%= challenge.title %>
               </label>
             </div>
           </div>
@@ -50,7 +50,7 @@
           <div class="dropdown-item">
             <label id="location__<%=location%>">
               <%= radio_button_tag('locations[]', location, false, onClick: "Locations(this);")%>
-              <%= location.capitalize %>
+              <%= location %>
             </label>
           </div>
           <% end %>
@@ -101,7 +101,7 @@
                     </div>
                     <% if trainer.city %>
                       <div align="center" class="col-md-12 city-location">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i> <%= trainer.city.capitalize %>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i> <%= trainer.city %>
                       </div>
                     <% end %>
                   </div>
@@ -130,7 +130,7 @@
                         </div>
                         <div class="col-md-9">
                           <div class="inner-card-main-text">Passion</div>
-                          <div class="inner-card-text"><%= trainer.passion.capitalize if trainer.passion %></div>
+                          <div class="inner-card-text"><%= trainer.passion %></div>
                         </div>
                       </div>
                     </div>
