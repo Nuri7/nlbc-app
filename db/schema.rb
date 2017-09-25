@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921135147) do
+ActiveRecord::Schema.define(version: 20170925114924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,9 @@ ActiveRecord::Schema.define(version: 20170921135147) do
     t.text     "comments"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "req_type"
+    t.string   "passion"
+    t.index ["req_type"], name: "index_contacts_on_req_type", using: :btree
   end
 
   create_table "feedbacks", force: :cascade do |t|

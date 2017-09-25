@@ -3,7 +3,7 @@ ActiveAdmin.register Contact do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 before_action :left_sidebar!, only: [:index]
-permit_params :first_name, :last_name, :email, :work_phone, :organization_name, :employees_number, :comments
+permit_params :first_name, :last_name, :email, :work_phone, :organization_name, :employees_number, :comments, :req_type, :passion
 #
 # or
 #

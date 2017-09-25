@@ -5,7 +5,7 @@
       <div align="center" class="enterprise-text">Give 1:1 support</div>
       <div align="center" class="enterprise-second">Make your passion your profession </div>
       <div class="row justify-content-md-center">
-        <a align="center" href="#" class="btn btn-primary">Apply now </a>
+        <a align="center" href="#get-in-touch" class="btn btn-primary">Apply now </a>
       </div>
     </div>
   </div>
@@ -211,4 +211,57 @@
   </div>
 
 <%= render 'faq' %>
+</div>
+<div id="get-in-touch" class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-8">
+      <h1 class="title">Apply now</h1>
+
+      <div class="card">
+        <div class="subtitle">* Required field</div>
+        <div class="card-body">
+          <%= form_for @contact, :url => url_for(controller: ContactsController.controller_name, action: 'create') do |f| %>
+          <%= f.hidden_field :req_type, value: 'trainer' %>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label class="col-form-label">FIRST NAME *</label>
+                <%= f.text_field :first_name, class: 'form-control', placeholder: 'Jane', :required => true %>
+              </div>
+              <div class="form-group col-md-6">
+                <label class="col-form-label">LAST NAME *</label>
+                <%= f.text_field :last_name, class: 'form-control', placeholder: 'Smith', :required => true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">EMAIL *</label>
+              <div class="input-group mb-2 mb-sm-0">
+                <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                <%= f.text_field :email, class: 'form-control', placeholder: 'Jane@company.com', :required => true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">PHONE *</label>
+              <div class="input-group mb-2 mb-sm-0">
+                <div class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                <%= f.text_field :work_phone, class: 'form-control', placeholder: '+1 234 567 890', :required => true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">PASSION *</label>
+              <div class="input-group mb-2 mb-sm-0">
+                <div class="input-group-addon"><i class="fa fa-book" aria-hidden="true"></i></div>
+                <%= f.text_field :passion, class: 'form-control', placeholder: 'Programming', :required => true %>
+              </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group">
+              <label class="col-form-label">Comments/Questions</label>
+              <%= f.text_area :comments, class: 'form-control', placeholder: "Do not hesitate to ask us about anything.", rows: 4, cols: 90 %>
+            </div>
+            <button type="submit" name="button" class="btn btn-primary">Submit</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

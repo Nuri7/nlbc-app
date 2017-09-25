@@ -97,6 +97,7 @@
         <div class="subtitle">* Required field</div>
         <div class="card-body">
           <%= form_for @contact, :url => url_for(controller: ContactsController.controller_name, action: 'create') do |f| %>
+          <%= f.hidden_field :req_type, value: 'enterprise' %>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label class="col-form-label">FIRST NAME *</label>

@@ -6,6 +6,7 @@ class NlbcController < ApplicationController
   end
 
   def teach
+    @contact = Contact.new
   end
 
   def vision
