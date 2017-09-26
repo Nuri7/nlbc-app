@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get :teach
     get :enterprise
     get :vision
+    get :bootcamps
     post :subscribe_to_passion
     delete :delete_user
   end

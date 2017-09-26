@@ -83,7 +83,10 @@ $green: #6b8c51;
     line-height: 23px;
     color: $second-text;
   }
-  .fa-graduation-cap, .fa-book{
+  .fa-graduation-cap,
+  .fa-book,
+  .fa-calendar,
+  .fa-clock-o{
     font-size: 25px;
     line-height: 42px;
     color: $third-text;

@@ -31,6 +31,15 @@ class NlbcController < ApplicationController
     end
   end
 
+  def bootcamps
+    @locations = Bootcamp.order(:location).collect(&:location).uniq.compact
+    @bootcamps = Bootcamp.all
+    if params[:locations].present?
+      @bootcamps = @bootcamps.where(:location => params[:locations])
+    end
+    @bootcamps = @bootcamps.order(:date)
+  end
+
   def dropdown_challenges
     if params['passion_ids'].present?
       @options = Passion.where(id: params['passion_ids']).map{|passion| passion.challenges}
