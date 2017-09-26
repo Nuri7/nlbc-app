@@ -41,26 +41,7 @@ $green: #6b8c51;
     filter: grayscale(0%);
   }
 }
-#table-comparison{
-  margin-top: 100px;
-  td{
-    text-align: center;
-  }
-  th{
-    margin: 45px 0;
-    font-size: 30px;
-    line-height: 33px;
-    color: $second-text;
-    font-weight: 200;
-    text-align: center;
-  }
-  .fa-check{
-    color: $green;
-  }
-  .fa-times{
-    color: $light-purple;
-  }
-}
+
 #get-in-touch{
   .title{
     margin: 45px 0;

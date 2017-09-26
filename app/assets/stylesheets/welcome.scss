@@ -136,3 +136,37 @@ nav a {
     background-image: asset-url('vision/happy.jpg');
   }
 }
+#enterprise-page{
+  @extend #vision-page;
+  .sixth-quote{
+    height: 400px;
+    background: $green;
+  }
+  .seventh-quote{
+    height: 400px;
+    background: $orange;
+  }
+  .satisfaction-image{
+    background-image: asset-url('enterprise/satisfaction.png');
+  }
+  .updates-image{
+    background-image: asset-url('enterprise/updates.jpg');
+    background-size: contain;
+  }
+  .two-trainers-image{
+    background-image: asset-url('enterprise/two_trainers.jpg');
+  }
+  .interactive-image{
+    background-image: asset-url('enterprise/interactive.png');
+    background-size: contain;
+  }
+  .flexible-image{
+    background-image: asset-url('enterprise/flexible.jpg');
+  }
+  .custom-branding-image{
+    background-image: asset-url('enterprise/results.jpg');
+  }
+  .pricing-image{
+    background-image: asset-url('enterprise/value.jpeg');
+  }
+}
