@@ -29,6 +29,8 @@ class NlbcController < ApplicationController
     else
       @trainers = User.where(id: Teacher.all.map(&:user_id))
     end
+
+    @trainers = @trainers.page(params[:page]).per(5)
   end
 
   def bootcamps
@@ -38,6 +40,7 @@ class NlbcController < ApplicationController
       @bootcamps = @bootcamps.where(:location => params[:locations])
     end
     @bootcamps = @bootcamps.order(:date)
+    @bootcamps = @bootcamps.page(params[:page]).per(5)
   end
 
   def dropdown_challenges
