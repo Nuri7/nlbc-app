@@ -91,6 +91,9 @@ class NlbcController < ApplicationController
           passion.destroy
         end
       end
+      if @user.teachers
+        @user.teachers.destroy_all
+      end
       @user.destroy
       flash[:notice] = "User was successfuly deleted from database."
       redirect_to :back
