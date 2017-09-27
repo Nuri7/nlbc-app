@@ -9,9 +9,15 @@
 
     <div class="collapse navbar-collapse transition" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link underline <%= white_link? ? 'white-link' : '' %>" href="<%= nlbc_bootcamps_path %>">Bootcamps</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link underline <%= white_link? ? 'white-link' : '' %>" href="<%= nlbc_find_a_trainer_path %>">1on1</a>
+        </li>
         <li class="dropdown">
           <a class="nav-link dropdown-toggle <%= white_link? ? 'white-link' : '' %>" href="Javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Follow Bootcamp
+            Passions
           </a>
     		  <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
               <% all_categories.each do |category| %>
@@ -26,21 +32,13 @@
               <% end %>
             </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link underline <%= white_link? ? 'white-link' : '' %>" href="<%= nlbc_find_a_trainer_path %>">1on1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link underline <%= white_link? ? 'white-link' : '' %>" href="<%= nlbc_bootcamps_path %>">Bootcamps</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link underline <%= white_link? ? 'white-link' : '' %>" href="<%= nlbc_teach_path %>">Become a trainer</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle <%= white_link? ? 'white-link' : '' %>" href="Javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             More
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="<%= nlbc_teach_path %>#questions">FAQ</a>
+            <%= link_to 'Become a trainer', nlbc_teach_path, class: 'dropdown-item' %>
             <%= link_to 'Enterprise', nlbc_enterprise_path, class: 'dropdown-item' %>
             <%= link_to 'Vision', nlbc_vision_path, class: 'dropdown-item' %>
           </div>
