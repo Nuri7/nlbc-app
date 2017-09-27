@@ -37,6 +37,10 @@ $green: #6b8c51;
     border: 1px solid #F2F2F2;
     height: 50px;
   }
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; // remove the gap so it doesn't close
+   }
   .dropdown-menu{
     width: 350px;
   }
