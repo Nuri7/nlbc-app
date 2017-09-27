@@ -9,6 +9,9 @@ $orange: #ef9929;
 $light-green: #c3bb35;
 $green: #6b8c51;
 #teach-cards{
+  .jumbotron{
+    padding: 2rem;
+  }
   .card{
     border-radius: 10px;
     overflow: hidden;
