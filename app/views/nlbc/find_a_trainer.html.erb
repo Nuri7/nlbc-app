@@ -3,10 +3,28 @@
   <div class="row justify-content-md-left">
     <div class="">
       <div class="dropdown trainer-filtering">
-        <button id="passionButton" class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Passion
+        <button id="categoryButton" class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Teachers: any
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% @categories.each do |category| %>
+          <div class="dropdown-item">
+            <label id="category__<%=category.id%>">
+              <%= radio_button_tag('categories[]', category.id, false, onClick: "Passions(this);")%>
+              <%= category.name %>
+            </label>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="">
+      <div class="dropdown trainer-filtering">
+        <button id="passionButton" class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Passion: any
+        </button>
+        <div id="passions_drop" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <% @passions.each do |passion| %>
           <div class="dropdown-item">
             <label id="passion__<%=passion.id%>">
@@ -22,7 +40,7 @@
     <div class="">
       <div class="dropdown trainer-filtering">
         <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Challenge
+          Challenges
         </button>
         <div id="challenges_drop" class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
           <% @challenges.each do |challenge| %>
@@ -43,7 +61,7 @@
     <div class="">
       <div class="dropdown trainer-filtering">
         <button id="locationButton" class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Location
+          Location: any
         </button>
         <div class="dropdown-menu drop-menu" aria-labelledby="dropdownMenuButton">
           <% @locations.each do |location| %>
@@ -167,9 +185,34 @@
   });
 </script>
 <script type="text/javascript">
+  function Passions(el) {
+    var id = '#category__' + el.value;
+    $("#categoryButton")[0].innerHTML = "Teacher: " + $(id).text();
+    var categories = new Array();
+    $.each($('input[name="categories[]"]'), function (index, val) {
+      if (val.checked) {
+        categories.push(val.value);
+      }
+    });
+    $.ajax({
+      url: "/nlbc/dropdown_passions",
+      type: 'GET',
+      data: {
+        category_ids: categories
+      },
+      dataType: 'json',
+      success: function (data) {
+        $("#passions_drop")[0].innerHTML = "";
+        data.forEach(function (item) {
+          $("#passions_drop")[0].innerHTML += '<div class="dropdown-item"><label id="passion__'+item[0]+'"><input type="radio" name="passions[]" id="passions__'+item[0]+'" value="' + item[0] + '" onclick="Challenges(this);">' + item[1] + '</label></div>'
+        });
+      }
+    });
+  };
+
   function Challenges(el) {
     var id = '#passion__' + el.value;
-    $("#passionButton")[0].innerHTML = $(id).text();
+    $("#passionButton")[0].innerHTML = "Passion: " + $(id).text();
     var passions = new Array();
     $.each($('input[name="passions[]"]'), function (index, val) {
       if (val.checked) {
@@ -194,6 +237,6 @@
 
   function Locations(el) {
     var id = '#location__' + el.value;
-    $("#locationButton")[0].innerHTML = $(id).text();
+    $("#locationButton")[0].innerHTML = "Location: " + $(id).text();
   };
 </script>

@@ -17,6 +17,7 @@ class NlbcController < ApplicationController
   end
 
   def find_a_trainer
+    @categories = Category.all
     @selected_challenges = nil
     @challenges = Challenge.all
     @passions = Passion.all
@@ -49,6 +50,16 @@ class NlbcController < ApplicationController
       render json: @options.map{|x| x if !x.empty?}.compact.flatten.map{|x| [x.id, x.title]}
     else
       @options = Challenge.all
+      render json: @options.map{|x| [x.id, x.title]}
+    end
+  end
+
+  def dropdown_passions
+    if params['category_ids'].present?
+      @options = Category.where(id: params['category_ids']).map{|category| category.passions}
+      render json: @options.map{|x| x if !x.empty?}.compact.flatten.map{|x| [x.id, x.title]}
+    else
+      @options = Passion.all
       render json: @options.map{|x| [x.id, x.title]}
     end
   end
