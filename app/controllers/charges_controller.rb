@@ -27,7 +27,7 @@ class ChargesController < ApplicationController
           :currency    => 'usd'
         )
         trainer = User.where(email: params['trainer_email']).first
-        UserNotifier.send_trainer_email(trainer, @challenges)
+        UserNotifierMailer.send_trainer_email(trainer, @challenges)
       rescue Stripe::CardError => e
         flash[:error] = e.message
         redirect_to new_charge_path
