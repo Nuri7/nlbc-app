@@ -26,7 +26,8 @@ class ChargesController < ApplicationController
           :description => "Rails Stripe customer: customerID: #{customer.id}, customerEmail: #{params[:stripeEmail]} is paying for User-teacherEmail: #{params['trainer_email']} with ID #{params['trainer_id']}",
           :currency    => 'usd'
         )
-
+        trainer = User.where(email: params['trainer_email']).first
+        UserNotifier.send_trainer_email(trainer, @challenges)
       rescue Stripe::CardError => e
         flash[:error] = e.message
         redirect_to new_charge_path
