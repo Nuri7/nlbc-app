@@ -5,8 +5,8 @@ class UserNotifierMailer < ApplicationMailer
   def send_trainer_email(trainer, challenges)
     headers "X-SMTPAPI" => {
      "sub": {
-       "%name%" => [trainer.first_name trainer.last_name],
-       "%challenges%" => [challenges.map{|challenge| challenge.title }.join(', ')]
+       "%name%" => ["#{trainer.first_name} #{trainer.last_name}"],
+       "%challenges%" => ["#{challenges.map{|challenge| challenge.title }.join(', ')}"]
      },
      "filters": {
        "templates": {
