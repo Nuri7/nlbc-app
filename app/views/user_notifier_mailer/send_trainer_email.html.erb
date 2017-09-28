@@ -5,6 +5,6 @@
   </head>
   <body>
     <h1>Hi, <%= "#{@user.first_name} #{@user.last_name}" %>!</h1>
-    <p><%= "You have new booking for #{@challenges}"%></p>
+    <p><%= "You have new booking for #{@challenges.map{|challenge| challenge.title }.join(', ')}"%></p>
   </body>
 </html>

@@ -6,6 +6,6 @@ class UserNotifierMailer < ApplicationMailer
     @user = trainer
     @challenges = challenges
     mail( :to => @user.email,
-    :subject => "You have new booking for #{@challenges}" )
+    :subject => "You have new NLBC booking." )
   end
 end
